@@ -14,3 +14,6 @@ This project may contain trademarks or logos for projects, products, or services
 
 ## Security Reporting
 [Report secuirty vulnerabilities here](Security.md).
+
+## Microsoft Garage
+Sketch 360 is a Microsoft Garage project. The Microsoft Garage turns fresh ideas into real projects. Learn more about The Garage at: http://microsoft.com/garage.
