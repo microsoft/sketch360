@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat" xmlns:dualscreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+             mc:Ignorable="d"
+             Title="{s:Translate AboutSketch360}"
+             x:Class="Sketch360.XPlat.Pages.AboutPage">
+    <ContentPage.Content>
+        <dualscreen:TwoPaneView MinTallModeHeight="1000" MinWideModeWidth="1000">
+            <dualscreen:TwoPaneView.Pane1>
+                <StackLayout Margin="8">
+                    <Label Text="Sketch 360"
+                 HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="24" />
+                    <Label HorizontalOptions="CenterAndExpand" x:Name="VersionLabel"/>
+                    <Label Text="{s:Translate AMicrosoftGarageProject}" HorizontalOptions="CenterAndExpand"   />
+                    <Label Text="{s:Translate CreatedByMichaelScherotter}" HorizontalOptions="CenterAndExpand" /> 
+                    <Button Text="{s:Translate PrivacyAndCookies}" Margin="4" HorizontalOptions="CenterAndExpand" Clicked="OnPrivacy"/>
+                </StackLayout>
+            </dualscreen:TwoPaneView.Pane1>
+        </dualscreen:TwoPaneView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="Sketch360.XPlat.App">
+    <Application.Resources>
+        <DataTemplate x:Key="ColorTemplate">
+            <Grid Padding="4" Margin="4" >
+                <Grid BackgroundColor="{Binding}" WidthRequest="20" HeightRequest="20"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="NamedColorTemplate">
+            <Grid Padding="4" Margin="4" >
+                <Grid BackgroundColor="{Binding Color}" WidthRequest="20" HeightRequest="20"/>
+            </Grid>
+        </DataTemplate>
+        <Style TargetType="ImageButton" x:Key="ToolbarImageButtonStyle">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+        </Style>
+        <Style TargetType="Slider">
+            <Setter Property="MinimumTrackColor" Value="Black"/>
+            <Setter Property="MaximumTrackColor" Value="Black"/>
+            <Setter Property="Minimum" Value="0.5"/>
+            <Setter Property="Maximum" Value="5.0"/>
+        </Style>
+        <Style x:Key="CarouselStyle" TargetType="carousel:CarouselViewControl">
+            <Setter Property="BackgroundColor" Value="Beige"/>
+            <Setter Property="CurrentPageIndicatorTintColor" Value="Black"/>
+            <Setter Property="IndicatorsTintColor" Value="LightGray"/>
+            <Setter Property="ShowIndicators" Value="True"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+        <Style x:Key="CarouselGridStyle" TargetType="Grid">
+            <Setter Property="Padding" Value="30" />
+            <Setter Property="RowDefinitions" Value="2*,0.25*,0.7*" />
+        </Style>
+        <Style x:Key="CarouselImageStyle" TargetType="Image">
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Grid.Row" Value="0" />
+        </Style>
+        <Style x:Key="CarouselLabelTextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+            <Setter Property="Grid.Row" Value="2" />
+        </Style>
+        <Style x:Key="CarouselSkipStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+    </Application.Resources>
+</Application>

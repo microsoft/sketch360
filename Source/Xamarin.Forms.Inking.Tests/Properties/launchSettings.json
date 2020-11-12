@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Xamarin.Forms.Inking.Tests": {
+      "commandName": "Executable"
+    }
+  }
+}

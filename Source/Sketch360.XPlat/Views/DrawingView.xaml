@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xplat="clr-namespace:Sketch360.XPlat"
+             xmlns:forms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:views="clr-namespace:Sketch360.XPlat.Views"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat"
+             xmlns:views1="clr-namespace:Xamarin.Forms.Inking.Views;assembly=Xamarin.Forms.Inking"
+             mc:Ignorable="d"
+             x:Class="Sketch360.XPlat.Views.DrawingView">
+    <ContentView.Resources>
+        <Style TargetType="ImageButton">
+            <Setter Property="MinimumHeightRequest" Value="44"/>
+            <Setter Property="MinimumWidthRequest" Value="44"/>
+            <Setter Property="HeightRequest" Value="44"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <DataTemplate x:Key="PenSizeTemplate">
+            <Grid Padding="4" Margin="4" HeightRequest="48"  >
+                <forms:SKCanvasView PaintSurface="OnDrawPenSize" HeightRequest="48" />
+            </Grid>
+        </DataTemplate>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid x:Name="LayoutRoot">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="OrientationStates">
+                    <VisualState Name="Spanned.Portrait">
+                        <VisualState.Setters>
+                            <Setter TargetName="DrawingToolbarContainer" Property="VerticalOptions" Value="Start"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup Name="ToolbarEdge">
+                    <VisualState Name="LeftToolbar">
+                        <VisualState.Setters>
+                            <Setter TargetName="DrawingToolbarContainer" Property="HorizontalOptions" Value="Start"/>
+                            <Setter TargetName="DrawingToolbar" Property="Grid.Column" Value="0"/>
+                            <Setter TargetName="ColorPicker" Property="Grid.Column" Value="2"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="RightToolbar"/>
+                </VisualStateGroup>
+                <VisualStateGroup Name="ToolbarStates">
+                    <VisualState Name="None"/>
+                    <VisualState Name="SelectingColor">
+                        <VisualState.Setters>
+                            <Setter TargetName="ColorPicker" Property="IsVisible" Value="True"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState  Name="SelectingPenSize">
+                        <VisualState.Setters>
+                            <Setter TargetName="PenSizesView" Property="IsVisible" Value="True"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup Name="StencilModeGroup">
+                    <VisualState Name="StencilNone"/>
+                    <VisualState Name="StencilFrontBackLines">
+                        <VisualState.Setters>
+                            <Setter TargetName="StencilButtonGroup" Property="IsVisible" Value="True"/>
+                            <Setter TargetName="StencilButton" Property="BackgroundColor" Value="Gray"/>
+                            <Setter TargetName="FrontBackButton" Property="BackgroundColor" Value="Gray"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="StencilLeftRightLines">
+                        <VisualState.Setters>
+                            <Setter TargetName="StencilButtonGroup" Property="IsVisible" Value="True"/>
+                            <Setter TargetName="StencilButton" Property="BackgroundColor" Value="Gray"/>
+                            <Setter TargetName="LeftRightButton" Property="BackgroundColor" Value="Gray"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="StencilVerticalLines">
+                        <VisualState.Setters>
+                            <Setter TargetName="StencilButtonGroup" Property="IsVisible" Value="True"/>
+                            <Setter TargetName="StencilButton" Property="BackgroundColor" Value="Gray"/>
+                            <Setter TargetName="VerticalLinesButton" Property="BackgroundColor" Value="Gray"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <views1:InkCanvasView Margin="32,0" BackgroundColor="Blue" x:Name="InkCanvasView" CanvasWidth="2000" CanvasHeight="1000" 
+                                HorizontalOffset="{Binding HorizontalOffset, Mode=OneWay}"
+                                VerticalOffset="{Binding VerticalOffset, Mode=OneWay}"
+                                SizeChanged="OnInkCanvasSizeChanged"
+                                Painting="OnBeforePaint"
+                                Painted="OnAfterPaint" />
+            <Grid IsVisible="False" x:Name="DrawingToolbarContainer"  HorizontalOptions="End" VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <CollectionView Grid.Column="0" Header="{s:Translate DrawingColor}" BackgroundColor="LightGray" x:Name="ColorPicker" IsVisible="False" ItemsSource="{Binding Colors}" SelectedItem="{Binding CurrentColor, Mode=TwoWay}" ItemTemplate="{StaticResource ColorTemplate}" HorizontalOptions="Start" WidthRequest="128" SelectionMode="Single" SelectionChanged="OnColorSelected"/>
+                <CollectionView Grid.Column="1" Header="{s:Translate PenSize}" BackgroundColor="LightGray" WidthRequest="240" x:Name="PenSizesView" SelectedItem="{Binding CurrentPenSize, Mode=TwoWay}" 
+                                IsVisible="False" SelectionMode="Single" ItemTemplate="{StaticResource PenSizeTemplate}" HorizontalOptions="Start" 
+                                ItemsSource="{Binding PenSizes}" SelectionChanged="OnPenSizeSelected"/>
+                <StackLayout Grid.Column="2" Orientation="Vertical" x:Name="DrawingToolbar" BackgroundColor="LightGray" VerticalOptions="Center">
+                    <ImageButton AutomationProperties.Name="Select color" Source="{Binding CurrentColorSource}" x:Name="ColorButton" Pressed="OnSelectColor" Released="OnReleasedToggle"/>
+                    <ImageButton AutomationProperties.Name="Select pen size" Source="PenSizeButton.png" x:Name="PenSizeButton" Pressed="OnSelectPenSize" Released="OnReleasedToggle"/>
+                    <ImageButton AutomationProperties.Name="Use stencils" Source="StencilButton.png" Clicked="OnStencil" x:Name="StencilButton"/>
+                    <StackLayout Orientation="Vertical" x:Name="StencilButtonGroup" IsVisible="False">
+                        <ImageButton x:Name="LeftRightButton" AutomationProperties.Name="Left-right stencil"  Source="LeftRightButton.png" Command="{Binding StencilCommand}" CommandParameter="LeftRightLines"/>
+                        <ImageButton x:Name="FrontBackButton" AutomationProperties.Name="Front-back stencil" Source="FrontBackButton.png" Command="{Binding StencilCommand}" CommandParameter="FrontBackLines"/>
+                        <ImageButton Source="VerticalLinesButton.png" AutomationProperties.Name="Vertical stencil" x:Name="VerticalLinesButton" Command="{Binding StencilCommand}" CommandParameter="VerticalLines"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+
+        </Grid>
+  </ContentView.Content>
+</ContentView>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat"
+            
+             mc:Ignorable="d"
+             Title="{s:Translate Help}"
+             x:Class="Sketch360.XPlat.Pages.HelpPage">
+    <ContentPage.Content>
+        <Grid>
+            <WebView x:Name="WebView" />
+            <!--Source="https://sway.office.com/UBuIl8YpGcH5swFP?ref=Link"/>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

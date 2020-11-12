@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat" xmlns:dualscreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+             Title="{s:Translate SketchProperties}"
+             x:Class="Sketch360.XPlat.Pages.DrawingPropertiesPage">
+    <ContentPage.Content>
+        <dualscreen:TwoPaneView MinTallModeHeight="1000" MinWideModeWidth="1000">
+            <dualscreen:TwoPaneView.Pane1>
+                <ScrollView>
+                    <StackLayout Margin="4">
+                        <Label Text="{s:Translate SketchName}"/>
+                        <Entry x:Name="SketchNameEntry"/>
+                        <Label Text="{s:Translate Background}"/>
+                        <CollectionView x:Name="ColorsView" ItemTemplate="{StaticResource ColorTemplate}" SelectionMode="Single">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="10" />
+                            </CollectionView.ItemsLayout>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+            </dualscreen:TwoPaneView.Pane1>
+        </dualscreen:TwoPaneView>
+    </ContentPage.Content>
+</ContentPage>

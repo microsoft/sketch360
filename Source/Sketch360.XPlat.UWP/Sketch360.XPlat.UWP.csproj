@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{B819336B-C0A1-4ADF-AA0D-E7284BFDB664}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sketch360.XPlat.UWP</RootNamespace>
+    <AssemblyName>Sketch360.XPlat.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>bin\x86\Debug\Sketch360.XPlat.UWP.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaseUrl.cs" />
+    <Compile Include="InkCanvasViewRenderer.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrollingInkCanvas.xaml.cs">
+      <DependentUpon>ScrollingInkCanvas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UWPInkExtensions.cs" />
+    <Compile Include="UWPInkPresenter.cs" />
+    <Compile Include="UWPInkStrokeContainer.cs" />
+    <Compile Include="ZoomableScrollViewerRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\BackButton.png">
+      <Link>BackButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\DrawButton.png">
+      <Link>DrawButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\DrawingViewButton.png">
+      <Link>DrawingViewButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\DrawingViewCarousel.png">
+      <Link>DrawingViewCarousel.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\EraserButton.png">
+      <Link>EraserButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\FrontBackButton.png">
+      <Link>FrontBackButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\LeftRightButton.png">
+      <Link>LeftRightButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\MenuButton.png">
+      <Link>MenuButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\PaletteButton.png">
+      <Link>PaletteButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\PanZoomButton.png">
+      <Link>PanZoomButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\PenSizeButton.png">
+      <Link>PenSizeButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\RedoButton.png">
+      <Link>RedoButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\SphericalViewCarousel.png">
+      <Link>SphericalViewCarousel.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\StencilButton.png">
+      <Link>StencilButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\TouchDrawing.png">
+      <Link>TouchDrawing.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\UndoButton.png">
+      <Link>UndoButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\VerticalLinesButton.png">
+      <Link>VerticalLinesButton.png</Link>
+    </Content>
+    <Content Include="..\Sketch360.XPlat.Android\Resources\drawable\View360Button.png">
+      <Link>View360Button.png</Link>
+    </Content>
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Equirectangular Grid.png" />
+    <Content Include="html\babylon.4.1.gui.js" />
+    <Content Include="html\babylon.4.1.js" />
+    <Content Include="html\grid.jpg" />
+    <Content Include="html\spherical.css" />
+    <Content Include="html\spherical.gui.js" />
+    <Content Include="html\spherical.html" />
+    <Content Include="html\spherical.js" />
+    <Content Include="html\TiltRotate.png" />
+    <Content Include="html\toolbar.png" />
+    <Content Include="html\ui.png" />
+    <Content Include="local.html" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ScrollingInkCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+      <Version>3.3.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.25.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1560" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.10" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3-preview1304" />
+    <PackageReference Include="Xamarin.Forms.DualScreen">
+      <Version>4.8.0.1560</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sketch360.XPlat\Sketch360.XPlat.csproj">
+      <Project>{DA1D6F34-3FD1-4842-8FBF-D73F820D04FC}</Project>
+      <Name>Sketch360.XPlat</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Xamarin.Forms.Inking\Xamarin.Forms.Inking.csproj">
+      <Project>{8B3E3AF3-67F5-492F-8C25-793BAEDD4EFD}</Project>
+      <Name>Xamarin.Forms.Inking</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+</Project>

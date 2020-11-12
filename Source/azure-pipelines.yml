@@ -1,0 +1,53 @@
+trigger:
+  - initial
+
+pr:
+  - initial
+
+jobs:
+  - job: android
+    displayName: Build for Android Platform
+    pool:
+      vmImage: 'macos-latest'
+    steps:
+      - pwsh: msbuild /t:restore Sketch360.XPlat.sln
+        displayName: Restore NuGet packages
+      - pwsh: msbuild /r /p:Configuration=Release /t:PackageForAndroid Sketch360.XPlat.Android/Sketch360.XPlat.Android.csproj
+        displayName: Build the Android APK
+      - task: AndroidSigning@3
+        displayName: "Zipalign"
+        inputs:
+          apkFiles: "Sketch360.XPlat.Android/bin/Release/*.apk"
+          apksign: false
+          zipalign: true
+      - task: EsrpCodeSigning@1
+        inputs:
+          ConnectedServiceName: 'ESRP Signing'
+          FolderPath: 'Sketch360.XPlat.Android/bin/Release'
+          Pattern: '*.apk'
+          signConfigType: 'inlineSignParams'
+          inlineOperation: |
+            [
+              {
+                "keyCode": "CP-233096-Java",
+                "operationSetCode": "Androidv2Sign",
+                "parameters": [],
+                "toolName": "sign",
+              "toolVersion": "1.0"
+              },
+              {
+                "keyCode": "CP-233096-Java",
+                "operationSetCode": "Androidv2Verify",
+                "parameters": [],
+                "toolName": "sign",
+                "toolVersion": "1.0"
+              }
+            ] 
+          SessionTimeout: '60'
+          MaxConcurrency: '50'
+          MaxRetryAttempts: '5'
+      - task: PublishBuildArtifacts@1
+        displayName: Publish the APK artifacts
+        inputs:
+          pathToPublish: 'Sketch360.XPlat.Android/bin/Release'
+          artifactName: 'Android'

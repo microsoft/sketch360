@@ -1,0 +1,1155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xamarin.Forms.Inking</name>
+    </assembly>
+    <members>
+        <member name="T:Xamarin.Forms.Inking.Interfaces.IInkCanvasView">
+            <summary>
+            Ink Canvas View Interface
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.ZoomFactorChanged">
+            <summary>
+            Zoom factor changed event
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.ZoomFactor">
+            <summary>
+            Gets the zoom factor
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.HorizontalOffset">
+            <summary>
+            Gets or sets the horizontal offset
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.WetStrokes">
+            <summary>
+            Gets or sets the wet ink strokes
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.VerticalOffset">
+            <summary>
+            Gets or sets the vertical offset
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.InkPresenter">
+            <summary>
+            Gets the ink presenter
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.CanvasWidth">
+            <summary>
+            Gets or sets the canvas width
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.CanvasHeight">
+            <summary>
+            Gets or sets the canvas height
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.PixelWidth">
+            <summary>
+            Gets the pixel width
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.PixelHeight">
+            <summary>
+            Gets the pixel height
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.PixelDensity">
+            <summary>
+            Gets the pixel density
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkCanvasView.InvalidateCanvas(System.Boolean,System.Boolean)">
+            <summary>
+            Invalidate the wet and dry ink canvases
+            </summary>
+            <param name="wetInk">true to invalidate the wet ink</param>
+            <param name="dryInk">true to invalidate the dry ink</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Interfaces.IInkPresenter">
+            <summary>
+            Ink presenter interface
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkPresenter.StrokeContainer">
+            <summary>
+            Gets or sets the stroke container
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkPresenter.InputDeviceTypes">
+            <summary>
+            Gets or sets the input device types
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkPresenter.InputProcessingConfiguration">
+            <summary>
+            gets the input processing configuration
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkPresenter.UnprocessedInput">
+            <summary>
+            Gets the unprocessed input
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Interfaces.IInkPresenter.WetStrokeUpdateSource">
+            <summary>
+            Gets the wet stroke update source
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Interfaces.IInkPresenter.StrokesCollected">
+            <summary>
+            strokes collected event
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Interfaces.IInkPresenter.StrokesErased">
+            <summary>
+            strokes erased event
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkPresenter.CopyDefaultDrawingAttributes">
+            <summary>
+            Copy the default drawing attributes
+            </summary>
+            <returns>the current default drawing attributes</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkPresenter.TriggerStrokesCollected(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Trigger the strokes collected event
+            </summary>
+            <param name="strokes">the strokes</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkPresenter.TriggerStrokesErased(System.Collections.Generic.IReadOnlyList{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Trigger the strokes erased event
+            </summary>
+            <param name="list">the strokes to erase</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkPresenter.UpdateDefaultDrawingAttributes(Xamarin.Forms.Inking.XInkDrawingAttributes)">
+            <summary>
+            Update the default drawing attributes
+            </summary>
+            <param name="attributes"></param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer">
+            <summary>
+            Ink stroke Container interface
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.InkChanged">
+            <summary>
+            Ink changed event
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.GetStrokes">
+            <summary>
+            Gets the strokes
+            </summary>
+            <returns>a read only list of <see cref="T:Xamarin.Forms.Inking.XInkStroke"/> objects</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.Clear">
+            <summary>
+            Clear the stroke list
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.Add(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            Add an ink stroke
+            </summary>
+            <param name="inkStroke">the ink stroke</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.Add(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Add a list of ink strokes
+            </summary>
+            <param name="strokes">the list of ink strokes</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.Remove(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            Remove an ink stroke
+            </summary>
+            <param name="item">the ink stroke to remove</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.SetRange(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Set the ink strokes
+            </summary>
+            <param name="inkStrokes">a collection of ink strokes</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer.Remove(System.Collections.Generic.IReadOnlyList{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Remove the ink strokes
+            </summary>
+            <param name="strokesToRemove">the strokes to remove</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Support.InkRenderer">
+            <summary>
+            Ink renderer
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.RenderImage(System.Int32,System.Int32,Xamarin.Forms.Color,System.Collections.Generic.IReadOnlyList{Xamarin.Forms.Inking.XInkStroke},System.IO.Stream,System.Int32)">
+            <summary>
+            render an image of ink strokes
+            </summary>
+            <param name="width">the width of the image</param>
+            <param name="height">the height of the image</param>
+            <param name="backgroundColor">the background color</param>
+            <param name="strokes">the strokes</param>
+            <param name="stream">the image stream to write to</param>
+            <param name="scaledWidth">the scaled width</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.DrawBackground(Xamarin.Forms.Color,SkiaSharp.SKCanvas,SkiaSharp.SKRect)">
+            <summary>
+            Draw a textured background
+            </summary>
+            <param name="backgroundColor">the backgroud color</param>
+            <param name="canvas">the canvas</param>
+            <param name="bounds">the bounds</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.RenderImage(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke},Xamarin.Forms.Color,System.Int32)">
+            <summary>
+            render the ink as an image
+            </summary>
+            <param name="width">the image width</param>
+            <param name="height">the image height</param>
+            <param name="strokes">the strokes</param>
+            <param name="backgroundColor">the background color</param>
+            <param name="scaledWidth">the scaled width</param>
+            <returns>a Base64 string</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.CreatePath(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            create a path for the stroke
+            </summary>
+            <param name="stroke">the stroke</param>
+            <returns>a new path</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.CreatePathPoints(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            create the path points
+            </summary>
+            <param name="stroke">the stroke</param>
+            <returns>the path points</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.CreateVariableThicknessPath(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            Create a variable thickness path
+            </summary>
+            <param name="stroke">the stroke</param>
+            <returns>a variable thickness path</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.InkRenderer.CreatePaint(Xamarin.Forms.Inking.XInkStroke,SkiaSharp.SKPaintStyle,SkiaSharp.SKBlendMode)">
+            <summary>
+            Create a SkiaSharp paint object to paint the ink stroke 
+            </summary>
+            <param name="stroke">an ink stroke</param>
+            <param name="paintStyle">the paint style (default is 
+            <see cref="F:SkiaSharp.SKPaintStyle.Stroke"/>)</param>
+            <param name="blendMode">the pencil drawing blend mode (default is 
+            <see cref="F:SkiaSharp.SKBlendMode.SrcATop"/></param>
+            <returns>a tuple with the<see cref="T:SkiaSharp.SKPaint"/> object and any 
+            disposable objects that need to be managed</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Support.BezierSpline">
+            <summary>
+            Bezier Spline methods
+            </summary>
+            From <![CDATA[https://www.codeproject.com/articles/31859/draw-a-smooth-curve-through-a-set-of-2d-points-wit]]>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.BezierSpline.GetCurveControlPoints(Xamarin.Forms.Point[],Xamarin.Forms.Point[]@,Xamarin.Forms.Point[]@)">
+            <summary>
+            Get open-ended Bezier Spline Control Points.
+            </summary>
+            <param name="knots">Input Knot Bezier spline points.</param>
+            <param name="firstControlPoints">Output First Control points
+            array of knots.Length - 1 length.</param>
+            <param name="secondControlPoints">Output Second Control points
+            array of knots.Length - 1 length.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="knots"/>
+            parameter must be not null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="knots"/>
+            array must contain at least two points.</exception>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.BezierSpline.GetFirstControlPoints(System.Double[])">
+            <summary>
+            Solves a tridiagonal system for one of coordinates (x or y)
+            of first Bezier control points.
+            </summary>
+            <param name="rhs">Right hand side vector.</param>
+            <returns>Solution vector.</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Support.SKCanvasExtensions">
+            <summary>
+            SkiSharp <see cref="T:SkiaSharp.SKCanvas"/> extensions for <see cref="T:Xamarin.Forms.Inking.XInkStroke"/> drawing
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.SKCanvasExtensions.Draw(SkiaSharp.SKCanvas,System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke},SkiaSharp.SKRect)">
+            <summary>
+            Draw the ink strokes that are within the bounds
+            </summary>
+            <param name="canvas">the SkiaSharp canvas</param>
+            <param name="strokes">the candidate strokes</param>
+            <param name="bounds">the bounds to draw in</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.SKCanvasExtensions.Draw(SkiaSharp.SKCanvas,System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Draw strokes
+            </summary>
+            <param name="canvas"></param>
+            <param name="strokes"></param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.SKCanvasExtensions.Draw(SkiaSharp.SKCanvas,Xamarin.Forms.Inking.XInkStroke,System.Boolean)">
+            <summary>
+            Draw an ink stroke
+            </summary>
+            <param name="canvas">the canvas</param>
+            <param name="stroke">the stroke</param>
+            <param name="useCache">true to use cached data</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.SKCanvasExtensions.DrawPenSize(SkiaSharp.SKCanvas,System.Single,SkiaSharp.SKImageInfo)">
+            <summary>
+            Draw a pen sample width
+            </summary>
+            <param name="canvas">the canvas</param>
+            <param name="width">the pen width</param>
+            <param name="info">the image info</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Support.TypedEventArgs`1">
+            <summary>
+                Typed event arguments
+            </summary>
+            <typeparam name="T">the value type</typeparam>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.TypedEventArgs`1.#ctor(`0)">
+            <summary>
+                Initializes a new instance of the TypedEventArgs class
+            </summary>
+            <param name="value">the value</param>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Support.TypedEventArgs`1.Value">
+            <summary>
+                Gets the value
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Support.TypedEventArgs`1.ToString">
+            <summary>
+                Returns the string for the value.
+            </summary>
+            <returns>the string for the Value</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Support.TypedEventHandler`2">
+            <summary>
+            A typed event handler
+            </summary>
+            <typeparam name="TSender">the sender type</typeparam>
+            <typeparam name="TResult">the result type</typeparam>
+            <param name="sender">the sender</param>
+            <param name="args">the arguments</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.Views.InkCanvasView">
+            <summary>
+            InkCanvas View using SkiaSharp
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.Views.InkCanvasView.CanvasWidthProperty">
+            <summary>
+            CanvasWidth dependency property
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.Views.InkCanvasView.CanvasHeightProperty">
+            <summary>
+            CanvasHeight dependency property
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.Views.InkCanvasView.HorizontalOffsetProperty">
+            <summary>
+            Horizontal offset dependency property
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.Views.InkCanvasView.VerticalOffsetProperty">
+            <summary>
+            VerticalOffset dependency property
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.Views.InkCanvasView.ZoomFactorProperty">
+            <summary>
+            ZoomFactor dependency property
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Views.InkCanvasView.#ctor">
+            <summary>
+            Initializes a new instance of the InkCanvasView class.
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Views.InkCanvasView.Painting">
+            <summary>
+            Before paint draw handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Views.InkCanvasView.Painted">
+            <summary>
+            After paint draw handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Views.InkCanvasView.DefaultInkDrawingAttributesChanged">
+            <summary>
+            Default drawing attributes changed event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.Views.InkCanvasView.ZoomFactorChanged">
+            <summary>
+            Zoom factor changed
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.WetStrokes">
+            <summary>
+            Gets the wet strokes
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.EraserSize">
+            <summary>
+            Gets or sets the eraser size
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.InkPresenter">
+            <summary>
+            Gets the ink presenter
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.InkStrokeContainer">
+            <summary>
+            Gets the ink stroke container
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.PixelDensity">
+            <summary>
+            Gets the density of each pixel on the canvas
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.PixelWidth">
+            <summary>
+            Gets the pixed width
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.PixelHeight">
+            <summary>
+            gets the pixel width
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.ZoomFactor">
+            <summary>
+            Gets or sets the zoom factor
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.CanvasWidth">
+            <summary>
+            Gets or sets the canvas width
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.CanvasHeight">
+            <summary>
+            Gets or sets the canvas height
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.HorizontalOffset">
+            <summary>
+            Gets or sets the horizontal offset
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.Views.InkCanvasView.VerticalOffset">
+            <summary>
+            Gets or sets the vertical offset
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Views.InkCanvasView.Dispose">
+            <summary>
+            Dispose of the grid bitmap, ink strokes, and cached ink
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Views.InkCanvasView.UpdateDefaultDrawingAttributes(Xamarin.Forms.Inking.XInkDrawingAttributes)">
+            <summary>
+            Update the default drawing attributes
+            </summary>
+            <param name="attributes"></param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Views.InkCanvasView.InvalidateCanvas(System.Boolean,System.Boolean)">
+            <summary>
+            Invalidate the wet and dry canvas views
+            </summary>
+            <param name="wetInk">true to invalidate the wet ink</param>
+            <param name="dryInk">true to invalidate the dry ink</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.Views.InkCanvasView.CopyDefaultDrawingAttributes">
+            <summary>
+            Copy the default darwing attributes
+            </summary>
+            <returns>a copy of the default drawing attributes</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XCoreInputDeviceTypes">
+            <summary>
+            Core input device types for inking
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreInputDeviceTypes.None">
+            <summary>
+            No device type
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreInputDeviceTypes.Touch">
+            <summary>
+            Touch device
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreInputDeviceTypes.Pen">
+            <summary>
+            Pen device
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreInputDeviceTypes.Mouse">
+            <summary>
+            Mouse device
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XCoreWetStrokeDisposition">
+            <summary>
+            Xamarin CoreWetStrokeDisposition
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreWetStrokeDisposition.Inking">
+            <summary>
+            continue inking
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreWetStrokeDisposition.Completed">
+            <summary>
+            Inking completed
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XCoreWetStrokeDisposition.Canceled">
+            <summary>
+            Inking canceled
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs">
+            <summary>
+            Xamarin CoreWetStrokeUpdateEventArgs
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs.Disposition">
+            <summary>
+            Gets or sets the disposition
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs.NewInkPoints">
+            <summary>
+            Gets the new ink points
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs.PointerId">
+            <summary>
+            Gets the pointer id
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource">
+            <summary>
+            Xamarin CoreWetStrokeUpdateSource
+            <![CDATA[https://docs.microsoft.com/en-us/uwp/api/windows.ui.input.inking.core.corewetstrokeupdatesource]]>
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.InkPresenter">
+            <summary>
+            Gets the ink presenter
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.WetStrokeCanceled">
+            <summary>
+            Wet stroke canceled event
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.WetStrokeCompleted">
+            <summary>
+            Wet stroke completed event
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.WetStrokeContinuing">
+            <summary>
+            Wet stroke continuing event
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.WetStrokeStarting">
+            <summary>
+            Wet stroke starging event
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.WetStrokeStopping">
+            <summary>
+            Wet stroke stopping event
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.Create(Xamarin.Forms.Inking.Interfaces.IInkPresenter)">
+            <summary>
+            Creates the wet stroke update source
+            </summary>
+            <param name="inkPresenter">the ink presenter</param>
+            <returns>a new <see cref="T:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource"/> object</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.OnCancelled(Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs)">
+            <summary>
+            wet stroke cancelled 
+            </summary>
+            <param name="updateArgs">Core wet stroke update event args</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.OnMoved(Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs)">
+            <summary>
+            On pointer Moved
+            </summary>
+            <param name="updateArgs"></param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.OnReleased(Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs)">
+            <summary>
+            On pointer released
+            </summary>
+            <param name="updateArgs"></param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XCoreWetStrokeUpdateSource.OnPressed(Xamarin.Forms.Inking.XCoreWetStrokeUpdateEventArgs)">
+            <summary>
+            On Pointer pressed
+            </summary>
+            <param name="updateArgs"></param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkDrawingAttributes">
+            <summary>
+            Xamarin InkDrawingAttributes
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkDrawingAttributes.Color">
+            <summary>
+            Gets or sets the ink stroke color (should invalidate the paint)
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkDrawingAttributes.Size">
+            <summary>
+            Gets or sets the pen width (should invalidate the paint)
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkDrawingAttributes.PenTip">
+            <summary>
+            Gets the pen tip shape
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkDrawingAttributes.Kind">
+            <summary>
+            Gets or sets the ink kind
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkDrawingAttributes.IgnorePressure">
+            <summary>
+            Gets or sets a value that indicates whether the pressure of the contact on the digitizer surface is ignored when you draw an <see cref="T:Xamarin.Forms.Inking.XInkStroke"/>.
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkDrawingAttributes.Copy">
+            <summary>
+            Copy the ink drawing attributes
+            </summary>
+            <returns>a copy of the ink drawing attributes</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkDrawingAttributesKind">
+            <summary>
+            InkDrawingAttributesKind
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XInkDrawingAttributesKind.Default">
+            <summary>
+            Supports attributes associated with a pen or highlighter.
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XInkDrawingAttributesKind.Pencil">
+            <summary>
+            Supports attributes associated with a pencil.
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkInputConfiguration">
+            <summary>
+            Xamarin InkInputConfiguration
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkInputConfiguration.IsEraserInputEnabled">
+            <summary>
+            Gets or sets a value indicating whether the erase input is enabled
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkInputConfiguration.IsPrimaryBarrelButtonInputEnabled">
+            <summary>
+            Gets or sets a value indicating whether the primary barrel button input is enabled
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkInputProcessingConfiguration">
+            <summary>
+            Xamarin InkInputProcessingConfiguration
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkInputProcessingConfiguration.Mode">
+            <summary>
+            Gets or sets the ink input processing mode
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkInputProcessingMode">
+            <summary>
+            Xamarin InkInputProcessingMode
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XInkInputProcessingMode.None">
+            <summary>
+            do not process ink input
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XInkInputProcessingMode.Inking">
+            <summary>
+            inking input
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XInkInputProcessingMode.Erasing">
+            <summary>
+            erasing input
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkPoint">
+            <summary>
+            Xamarin InkPoint
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPoint.#ctor">
+            <summary>
+            Initializes a new instance of the XInkPoint class.
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPoint.#ctor(Xamarin.Forms.Point,System.Single,System.Single,System.Single,System.UInt64)">
+            <summary>
+            Initializes a new instance of the XInkPoint class.
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPoint.Pressure">
+            <summary>
+            Gets or sets the pressure
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPoint.Position">
+            <summary>
+            Gets or sets the position
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPoint.Timestamp">
+            <summary>
+            Gets or sets the timestamp
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPoint.TiltX">
+            <summary>
+            Gets or sets the X tilt
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPoint.TiltY">
+            <summary>
+            Gets or sets the Y tilt
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkPresenter">
+            <summary>
+            Xamarain InkPresenter
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPresenter.#ctor(Xamarin.Forms.Inking.Interfaces.IInkCanvasView)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xamarin.Forms.Inking.XInkPresenter"/> class
+            </summary>
+            <param name="inkCanvasView">the <see cref="P:Xamarin.Forms.Inking.XInkPresenter.InkCanvasView"/></param>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkPresenter.StrokesCollected">
+            <summary>
+            Strokes collected event
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkPresenter.StrokesErased">
+            <summary>
+            Strokes erased event
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.StrokeContainer">
+            <summary>
+            Gets or sets the stroke container
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.EraserSize">
+            <summary>
+            Gets or sets the eraser size
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.InputDeviceTypes">
+            <summary>
+            Gets or sets the input device type from which input data is collected by the InkPresenter to construct and render an InkStroke. The default is Pen.
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.InkCanvasView">
+            <summary>
+            Gets the ink canvas view
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.UnprocessedInput">
+            <summary>
+            Gets the unprocessed input
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.InputConfiguration">
+            <summary>
+            Gets the input configuration
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.InputProcessingConfiguration">
+            <summary>
+            Gets the input processing configuration
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPresenter.UpdateDefaultDrawingAttributes(Xamarin.Forms.Inking.XInkDrawingAttributes)">
+            <summary>
+            Update the default drawing attributes
+            </summary>
+            <param name="attributes"></param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPresenter.CopyDefaultDrawingAttributes">
+            <summary>
+            Copy the default darwing attributes
+            </summary>
+            <returns>a copy of the default drawing attributes</returns>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkPresenter.WetStrokeUpdateSource">
+            <summary>
+            Gets or sets the wet stroke update source
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPresenter.TriggerStrokesErased(System.Collections.Generic.IReadOnlyList{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Trigger the strokes erased event
+            </summary>
+            <param name="list">the list of strokes</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkPresenter.TriggerStrokesCollected(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Trigger the strokes collected event handler
+            </summary>
+            <param name="strokes">the strokes</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkStroke">
+            <summary>
+            Xamarin InkStroke
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStroke.#ctor">
+            <summary>
+            Initializes a new instance of the XInkStroke class.
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.Id">
+            <summary>
+            Gets or sets the unique Id of the ink stroke
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.Points">
+            <summary>
+            Gets or sets the points for serialization
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.DrawingAttributes">
+            <summary>
+            Gets or sets the drawing attributes
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStroke.UpdateBounds">
+            <summary>
+            Update the bounds of the stroke
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.Path">
+            <summary>
+            Gets or sets the path
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.Paint">
+            <summary>
+            Gets or sets the paint
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.BoundingRect">
+            <summary>
+            Gets or sets the bounds
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStroke.Dispose">
+            <summary>
+            Dispose of the Path and Paint
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStroke.Resources">
+            <summary>
+            Gets or sets the resources that the stroke manages
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStroke.GetInkPoints">
+            <summary>
+            Gets the ink points
+            </summary>
+            <returns>a read-only list of the ink points</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStroke.Add(Xamarin.Forms.Inking.XInkPoint)">
+            <summary>
+            Add a point that is not too close to the last point, update the bounds, and invalidate the path 
+            </summary>
+            <param name="point">the point to add</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkStrokeBuilder">
+            <summary>
+            Ink stroke builder
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeBuilder.CreateStrokeFromInkPoints(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkPoint})">
+            <summary>
+            Creates a strokes from ink points
+            </summary>
+            <param name="inkPoints">the ink points</param>
+            <returns>a new ink stroke</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeBuilder.SetDefaultDrawingAttributes(Xamarin.Forms.Inking.XInkDrawingAttributes)">
+            <summary>
+            Sets the default drawing attributes
+            </summary>
+            <param name="attributes"></param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkStrokeContainer">
+            <summary>
+            Xamarin InkStrokeContainer
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkStrokeContainer.InkChanged">
+            <summary>
+            Ink changed event handler
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.GetStrokes">
+            <summary>
+            Gets the ink strokes
+            </summary>
+            <returns>a read-only list of ink strokes</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.Add(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Adds ink strokes
+            </summary>
+            <param name="strokes">a collection of ink strokes</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.Add(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            Add an ink stroke to the container
+            </summary>
+            <param name="stroke">the stroke to add</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.Clear">
+            <summary>
+            Remove all of the ink stroks from the container
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.Dispose">
+            <summary>
+            Dispose of the strokes
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.Remove(Xamarin.Forms.Inking.XInkStroke)">
+            <summary>
+            Remove the ink stroke
+            </summary>
+            <param name="item">the ink stroke</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.Remove(System.Collections.Generic.IReadOnlyList{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            remove a list of strokes
+            </summary>
+            <param name="strokesToRemove">the strokes to remove</param>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokeContainer.SetRange(System.Collections.Generic.IEnumerable{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Sets the ink strokes
+            </summary>
+            <param name="inkStrokes">a collection of ink strokes</param>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkStrokesErasedEventArgs">
+            <summary>
+            Ink strokes erased event arguments
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkStrokesErasedEventArgs.#ctor(System.Collections.Generic.IReadOnlyList{Xamarin.Forms.Inking.XInkStroke})">
+            <summary>
+            Xamarin XInkStrokesErasedEventArgs
+            </summary>
+            <param name="strokes"></param>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStrokesErasedEventArgs.Strokes">
+            <summary>
+            Gets the strokes
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkStrokesCollectedEventArgs">
+            <summary>
+            Xamarin InkStrokeCollectedEventArgs
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkStrokesCollectedEventArgs.Strokes">
+            <summary>
+            Gets the Strokes
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XInkUnprocessedInput">
+            <summary>
+            Xamarin InkUnprocessedInput
+            </summary>
+        </member>
+        <member name="M:Xamarin.Forms.Inking.XInkUnprocessedInput.#ctor(Xamarin.Forms.Inking.XInkPresenter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xamarin.Forms.Inking.XInkUnprocessedInput"/> class
+            </summary>
+            <param name="inkPresenter"></param>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XInkUnprocessedInput.InkPresenter">
+            <summary>
+            Gets the ink presenter
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerEntered">
+            <summary>
+            Pointer entered event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerExited">
+            <summary>
+            Pointer exited event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerHovered">
+            <summary>
+            Pointer hovered event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerLost">
+            <summary>
+            Pointer lost event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerMoved">
+            <summary>
+            Pointer moved event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerPressed">
+            <summary>
+            Pointer pressed event handler
+            </summary>
+        </member>
+        <member name="E:Xamarin.Forms.Inking.XInkUnprocessedInput.PointerReleased">
+            <summary>
+            Pointer released event handler
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XPenTipShape">
+            <summary>
+            Xamarin PenTipShape
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XPenTipShape.Circle">
+            <summary>
+            Circle pen tip shape
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XPenTipShape.Rectangle">
+            <summary>
+            Rectangle pen tip shape
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XPointerDevice">
+            <summary>
+            Xamarin PointerDevice
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerDevice.PointerDeviceType">
+            <summary>
+            Gets the Pointer device type
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XPointerDeviceType">
+            <summary>
+            Xamarin pointer device type
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XPointerDeviceType.Touch">
+            <summary>
+            Touch device type
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XPointerDeviceType.Pen">
+            <summary>
+            Pen device type
+            </summary>
+        </member>
+        <member name="F:Xamarin.Forms.Inking.XPointerDeviceType.Mouse">
+            <summary>
+            Mouse device type
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XPointerEventArgs">
+            <summary>
+            Xamarin PointerEventArgs
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerEventArgs.CurrentPoint">
+            <summary>
+            Gets the current point
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerEventArgs.Handled">
+            <summary>
+            Gets or sets a value indicating whether the poitner event was handled
+            </summary>
+        </member>
+        <member name="T:Xamarin.Forms.Inking.XPointerPoint">
+            <summary>
+            Xamarin PointerPoint
+            </summary>
+            <remarks>Similar to Windows.UI.Input.PointerPoint: <![CDATA[https://docs.microsoft.com/en-us/uwp/api/Windows.UI.Input.PointerPoint?view=winrt-19041]]></remarks>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerPoint.Position">
+            <summary>
+            Gets the position
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerPoint.Timestamp">
+            <summary>
+            Gets the timestamp
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerPoint.PointerId">
+            <summary>
+            Gets the pointer id
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerPoint.PointerDevice">
+            <summary>
+            gets the pointer device
+            </summary>
+        </member>
+        <member name="P:Xamarin.Forms.Inking.XPointerPoint.IsInContact">
+            <summary>
+            Gets a value indicating whether the pointer is in contact
+            </summary>
+        </member>
+    </members>
+</doc>
