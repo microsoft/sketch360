@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sketch360.XPlat</name>
+    </assembly>
+    <members>
+        <member name="T:Sketch360.XPlat.App">
+            <summary>
+            Xamarin Forms App
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.App.#ctor">
+            <summary>
+            Initializes a new instance of the App class
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.App.OnStart">
+            <summary>
+            App startup
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.App.OnSleep">
+            <summary>
+            App sleep
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.App.OnResume">
+            <summary>
+            App resume
+            </summary>
+        </member>
+        <member name="T:Sketch360.XPlat.IBaseUrl">
+            <summary>
+            Base URI interface
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.IBaseUrl.GetBase">
+            <summary>
+            Gets the platform-dependent base URL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sketch360.XPlat.InkCanvas">
+            <summary>
+            Cross-platform ink canvas
+            </summary>
+        </member>
+        <member name="P:Sketch360.XPlat.InkCanvas.ImageStream">
+            <summary>
+            Gets or sets the image stream
+            </summary>
+        </member>
+        <member name="P:Sketch360.XPlat.InkCanvas.LastInkPoint">
+            <summary>
+            Gets or sets the last ink point
+            </summary>
+        </member>
+        <member name="T:Sketch360.XPlat.IZoomableScrollView">
+            <summary>
+            Zoomable scrollview interface
+            </summary>
+        </member>
+        <member name="P:Sketch360.XPlat.IZoomableScrollView.IsZoomEnabled">
+            <summary>
+            Gets or sets a value indicating whether the scrollview is zoomable
+            </summary>
+        </member>
+        <member name="T:Sketch360.XPlat.MainPage">
+            <summary>
+            MainPage class
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.MainPage.#ctor">
+            <summary>
+            Initializes a new instance of the MainPage class
+            </summary>
+        </member>
+        <member name="T:Sketch360.XPlat.StreamExtension">
+            <summary>
+            Stream extensions
+            </summary>
+        </member>
+        <member name="M:Sketch360.XPlat.StreamExtension.ConvertToBase64(System.IO.Stream)">
+            <summary>
+            Get the base 64 string for a stream
+            </summary>
+            <param name="stream">the stream</param>
+            <returns>a base-64 string</returns>
+        </member>
+        <member name="T:Sketch360.XPlat.ZoomableScrollView">
+            <summary>
+            Zoomable ScrollView
+            </summary>
+        </member>
+        <member name="P:Sketch360.XPlat.ZoomableScrollView.IsZoomEnabled">
+            <summary>
+            Gets or sets a value indicating whether the scrollview is zoomable
+            </summary>
+        </member>
+    </members>
+</doc>

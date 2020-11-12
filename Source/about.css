@@ -1,0 +1,18 @@
+﻿html, body {
+    font-family:'Segoe UI';
+    margin-right:26px;
+}
+
+.RenderCanvas {
+    width: 320px;
+    height: 160px;
+    touch-action: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon {
+    font-family: 'Segoe MDL2 Assets';
+    font-weight: bold;
+}

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             mc:Ignorable="d"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat"
+             
+             x:Class="Sketch360.XPlat.Views.PaletteView">
+    <ContentView.Resources>
+        <DataTemplate x:Key="PenSizeTemplate">
+            <Grid Padding="4" Margin="4" WidthRequest="80" HeightRequest="40" BackgroundColor="White" >
+                <forms:SKCanvasView PaintSurface="OnDrawPenSize" HeightRequest="40" Margin="4" BackgroundColor="White"/>
+            </Grid>
+        </DataTemplate>
+    </ContentView.Resources>
+  <ContentView.Content>
+      <StackLayout BackgroundColor="White" Padding="4">
+            <CollectionView Header="{s:Translate Colors}" x:Name="ColorsView" ItemTemplate="{StaticResource ColorTemplate}" SelectionMode="Single"
+                            SelectionChanged="OnColorChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="10" />
+
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+            <CollectionView Header="{s:Translate PenSize}" x:Name="PenSizes" ItemTemplate="{StaticResource PenSizeTemplate}" SelectionMode="Single"
+                            SelectionChanged="OnPenSizeChanged" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="4"/>
+                </CollectionView.ItemsLayout>
+
+            </CollectionView>
+            <Button Text="{s:Translate OK}" Clicked="OnOK" HorizontalOptions="Center"/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

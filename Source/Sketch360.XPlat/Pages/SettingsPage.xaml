@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat" xmlns:dualscreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+             mc:Ignorable="d"
+             Title="{s:Translate Settings}"
+             x:Class="Sketch360.XPlat.Pages.SettingsPage">
+    <ContentPage.Content>
+        <dualscreen:TwoPaneView MinTallModeHeight="1000" MinWideModeWidth="1000">
+            <dualscreen:TwoPaneView.Pane1>
+                <StackLayout Margin="8" BackgroundColor="White">
+                    <Label Text="{s:Translate GridOpacity}"/>
+                    <Slider x:Name="GridOpacitySlider" HorizontalOptions="FillAndExpand" Minimum="0" Maximum="100" ValueChanged="OnOpacityChanged"/>
+                    <Label Text="{s:Translate LandscapeDrawingScreen}" Margin="0,8,0,0"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{s:Translate Left}"/>
+                        <Switch x:Name="LandscapeSwitch" Toggled="OnLandscapeSwitchToggled" />
+                        <Label Text="{s:Translate Right}"/>
+                    </StackLayout>
+                    <Label Text="{s:Translate PortraitDrawingScreen}" Margin="0,8,0,0"/>
+                    <StackLayout Orientation="Horizontal" >
+                        <Label Text="{s:Translate Top}"/>
+                        <Switch x:Name="PortraitSwitch" Toggled="OnPortraintSwitchToggled"/>
+                        <Label Text="{s:Translate Bottom}"/>
+                    </StackLayout>
+                    <ListView x:Name="Resolutions" Header="{s:Translate ExportResolutions}" Margin="0,8,0,0" ItemSelected="OnResolutionSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="{s:Translate ShowIntroduction}" HorizontalOptions="Start" Margin="0,8" Clicked="OnShowIntroduction"/>
+                    <Button Text="{s:Translate LoadInitialSketch}" HorizontalOptions="Start" Margin="0,8" Clicked="OnLoadInitialSketch"/>
+                </StackLayout>
+            </dualscreen:TwoPaneView.Pane1>
+        </dualscreen:TwoPaneView>
+        
+    </ContentPage.Content>
+</ContentPage>

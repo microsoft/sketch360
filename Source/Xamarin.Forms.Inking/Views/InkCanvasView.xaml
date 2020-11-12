@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:forms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             mc:Ignorable="d"
+             x:Class="Xamarin.Forms.Inking.Views.InkCanvasView">
+    <ContentView.Content>
+        <Grid>
+            <forms:SKCanvasView x:Name="CanvasView" PaintSurface="OnDrawDryInk" EnableTouchEvents="False"/>
+            <forms:SKCanvasView x:Name="WetInkView" PaintSurface="OnDrawWetInk" EnableTouchEvents="True" Touch="OnTouch"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,150 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:xplat="clr-namespace:Sketch360.XPlat"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat"
+             xmlns:views="clr-namespace:Sketch360.XPlat.Views"
+             xmlns:dualscreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             mc:Ignorable="d s"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="Sketch360.XPlat.SplitPage"
+             x:Name="rootPage"
+             BackgroundColor="Beige">
+    <ContentPage.Resources>
+        <xplat:SaveSketchCommand x:Key="SaveSketchCommand"/>
+        <Style TargetType="ImageButton">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="WidthRequest" Value="44"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <StackLayout x:Name="RootLayout">
+        <ContentView x:Name="ControlPanelRootLayout">
+            <StackLayout Orientation="Horizontal" x:Name="ControlPanel">
+                <FlexLayout x:Name="FlexControls" Direction="Row" Margin="4" AlignItems="Center" JustifyContent="SpaceEvenly">
+                    <ImageButton Source="MenuButton.png" Clicked="OnMenu" AutomationProperties.Name="Menu"/>
+                    <ImageButton x:Name="DrawingButton" AutomationProperties.Name="Drawing" Source="DrawButton.png"  Command="{Binding ActivateModeCommand}" CommandParameter="Drawing"/>
+                    <ImageButton x:Name="ErasingButton" AutomationProperties.Name="Erasing" Source="EraserButton.png" Command="{Binding ActivateModeCommand}" CommandParameter="Erasing"/>
+                    <ImageButton IsVisible="False" x:Name="PanZoomButton" Source="PanZoomButton.png" Command="{Binding ActivateModeCommand}" CommandParameter="Panning" />
+                    <ImageButton x:Name="TouchDrawingButton" AutomationProperties.Name="Touch drawing" Source="TouchDrawing.png" Command="{Binding TouchDrawingCommand}"/>
+                    <ImageButton IsVisible="False" x:Name="PaletteButton" Source="PaletteButton.png" Clicked="OnPalette"/>
+                    <ImageButton x:Name="UndoButton" AutomationProperties.Name="Undo" Source="UndoButton.png" Command="{Binding UndoManager.UndoCommand}"/>
+                    <ImageButton x:Name="RedoButton" AutomationProperties.Name="Redo" Source="RedoButton.png" Command="{Binding UndoManager.RedoCommand}"/>
+                    <ImageButton x:Name="DrawingViewButton" AutomationProperties.Name="Show only drawing view" Source="DrawingViewButton.png" Clicked="OnDrawingView"/>
+                    <ImageButton x:Name="View360Button" AutomationProperties.Name="Show only 360 view" Source="View360Button.png" Clicked="OnView360" />
+                </FlexLayout>
+                <StackLayout VerticalOptions="Center" x:Name="sliderContainer" HorizontalOptions="FillAndExpand" >
+                    <Slider x:Name="ZoomSlider" Value="{Binding InkCanvasView.ZoomFactor, Mode=TwoWay}"/>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+
+        <Grid VerticalOptions="FillAndExpand" x:Name="OuterGrid">
+            <dualscreen:TwoPaneView x:Name="TwoPaneView" PanePriority="Pane1">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="Modes">
+                        <VisualState Name="Drawing">
+                            <VisualState.Setters>
+                                <Setter TargetName="DrawingButton" Property="BackgroundColor" Value="LightGray"/>
+                                <Setter TargetName="ErasingButton" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="PanZoomButton" Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Erasing">
+                            <VisualState.Setters>
+                                <Setter TargetName="DrawingButton" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="ErasingButton" Property="BackgroundColor" Value="LightGray"/>
+                                <Setter TargetName="PanZoomButton" Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Panning">
+                            <VisualState.Setters>
+                                <Setter TargetName="DrawingButton" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="PanZoomButton" Property="BackgroundColor" Value="LightGray"/>
+                                <Setter TargetName="ErasingButton" Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                    <VisualStateGroup Name="DrawingModeStates">
+                        <VisualState Name="DrawingState">
+                            <VisualState.Setters>
+                                <Setter Property="TallModeConfiguration" Value="SinglePane"/>
+                                <Setter Property="WideModeConfiguration" Value="SinglePane"/>
+                                <Setter Property="PanePriority" Value="Pane1"/>
+                                <Setter TargetName="View360Button" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="DrawingViewButton" Property="BackgroundColor" Value="LightGray"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="View360State">
+                            <VisualState.Setters>
+                                <Setter Property="TallModeConfiguration" Value="SinglePane"/>
+                                <Setter Property="WideModeConfiguration" Value="SinglePane"/>
+                                <Setter Property="PanePriority" Value="Pane2"/>
+                                <Setter TargetName="View360Button" Property="BackgroundColor" Value="LightGray"/>
+                                <Setter TargetName="DrawingViewButton" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="BackButton" Property="IsVisible" Value="True"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="SplitPortrait">
+                            <VisualState.Setters>
+                                <Setter Property="MinWideModeWidth" Value="1000"/>
+                                <Setter Property="MinTallModeHeight" Value="0"/>
+                                <Setter Property="TallModeConfiguration" Value="{Binding Source={x:Reference rootPage}, Path=TallModePreference}"/>
+                                <Setter TargetName="ControlPanel" Property="StackLayout.Orientation" Value="Horizontal"/>
+                                <Setter TargetName="View360Button" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="DrawingViewButton" Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="SplitLandscape">
+                            <VisualState.Setters>
+                                <Setter Property="MinWideModeWidth" Value="0"/>
+                                <Setter Property="MinTallModeHeight" Value="1000"/>
+                                <Setter Property="WideModeConfiguration" Value="{Binding Source={x:Reference rootPage}, Path=WideModePreference}"/>
+                                <Setter TargetName="ControlPanel" Property="StackLayout.Orientation" Value="Vertical"/>
+                                <Setter TargetName="View360Button" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="DrawingViewButton" Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Spanned">
+                            <VisualState.Setters>
+                                <Setter Property="TallModeConfiguration" Value="{Binding Source={x:Reference rootPage}, Path=TallModePreference}"/>
+                                <Setter Property="WideModeConfiguration" Value="{Binding Source={x:Reference rootPage}, Path=WideModePreference}"/>
+                                <Setter TargetName="View360Button" Property="BackgroundColor" Value="Transparent"/>
+                                <Setter TargetName="DrawingViewButton" Property="BackgroundColor" Value="Transparent"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                <dualscreen:TwoPaneView.Pane1>
+                    <Grid>
+                        <StackLayout  x:Name="DrawingViewContainer" Margin="0,8" VerticalOptions="FillAndExpand">
+                            <ContentView x:Name="ControlPanelPane1" />
+                            <views:DrawingView VerticalOptions="FillAndExpand" x:Name="InkCanvas" CanvasSize="2000,1000" IsDrawingToolbarVisible="True"/>
+                        </StackLayout>
+                        <ContentView InputTransparent="True" Margin="0,48,0,0" VerticalOptions="Start" HorizontalOptions="Start" x:Name="MenuContainerPane1" />
+                    </Grid>
+                </dualscreen:TwoPaneView.Pane1>
+
+                <dualscreen:TwoPaneView.Pane2>
+                    <Grid x:Name="FullPreviewPane">
+                        <views:SphericalView x:Name="FullPreview" Margin="32,8"/>
+                        <ImageButton x:Name="BackButton" Source="BackButton.png" IsVisible="False" AutomationProperties.Name="Back" HorizontalOptions="Start" VerticalOptions="Start" Margin="4" Clicked="OnBack"/>
+                        <views:PaletteView IsVisible="False" x:Name="FullPaletteView" PaletteChanged="OnPaletteChanged"/>
+                    </Grid>
+                </dualscreen:TwoPaneView.Pane2>
+
+            </dualscreen:TwoPaneView>
+
+            <ContentView InputTransparent="True" VerticalOptions="Start" HorizontalOptions="Start"  x:Name="MenuViewRootLayout">
+                <views:MenuView IsVisible="False" x:Name="MenuView" WidthRequest="240" HeightRequest="380" SaveSketchCommand="{StaticResource SaveSketchCommand}" />
+            </ContentView>
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

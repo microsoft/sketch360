@@ -1,0 +1,53 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:res="clr-namespace:Sketch360.XPlat.Resources" xmlns:dualscreen="clr-namespace:Xamarin.Forms.DualScreen;assembly=Xamarin.Forms.DualScreen"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Sketch360.XPlat.CarouselPage"
+             SizeChanged="OnSizeChanged">
+    <dualscreen:TwoPaneView MinTallModeHeight="1000" MinWideModeWidth="1000">
+        <dualscreen:TwoPaneView.Pane1>
+            <Grid>
+                <carousel:CarouselViewControl x:Name="Carousel" PositionSelected="OnPositionSelected" Style="{StaticResource CarouselStyle}">
+                    <carousel:CarouselViewControl.ItemsSource>
+                        <x:Array Type="{x:Type View}">
+
+                            <Grid Style="{StaticResource CarouselGridStyle}" RowDefinitions="2*,0.25*,1*">
+                                <Image Source="logo.png" Style="{StaticResource CarouselImageStyle}" />
+                                <Label Text="{x:Static res:AppResources.CarouselAppText}" Style="{StaticResource CarouselLabelTextStyle}" />
+                            </Grid>
+
+                            <Grid Style="{StaticResource CarouselGridStyle}">
+                                <Image Source="DrawingViewCarousel.png" Style="{StaticResource CarouselImageStyle}" />
+                                <Label Text="{x:Static res:AppResources.CarouselDrawingText}" Style="{StaticResource CarouselLabelTextStyle}" />
+                            </Grid>
+
+                            <Grid Style="{StaticResource CarouselGridStyle}">
+                                <Image Source="SphericalViewCarousel.png" Style="{StaticResource CarouselImageStyle}" />
+                                <Label Text="{x:Static res:AppResources.CarouselSphericalText}" Style="{StaticResource CarouselLabelTextStyle}" />
+                            </Grid>
+
+                            <Grid Style="{StaticResource CarouselGridStyle}">
+                                <Image Source="export360Degree.png" Style="{StaticResource CarouselImageStyle}" />
+                                <Label Text="{x:Static res:AppResources.CarouselExportText}" Style="{StaticResource CarouselLabelTextStyle}" />
+                            </Grid>
+
+                        </x:Array>
+                    </carousel:CarouselViewControl.ItemsSource>
+                </carousel:CarouselViewControl>
+                <Grid Padding="12" VerticalOptions="End" HorizontalOptions="End">
+                    <Label x:Name="SkipLabel"
+                   Text="{x:Static res:AppResources.CarouselSkip}"
+                   Style="{StaticResource CarouselSkipStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSkipLabelClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </Grid>
+        </dualscreen:TwoPaneView.Pane1>
+    </dualscreen:TwoPaneView>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:commands="clr-namespace:Sketch360.XPlat.Commands"
+             xmlns:s="clr-namespace:Sketch360.XPlat.Support;assembly=Sketch360.XPlat"
+             mc:Ignorable="d"
+             x:Class="Sketch360.XPlat.Views.MenuView">
+    <ContentView.Resources>
+        <commands:ExportImageCommand x:Key="ExportImageCommand"/>
+        <commands:OpenSketchCommand x:Key="OpenSketchCommand"/>
+        <commands:ShareCommand x:Key="ShareCommand"/>
+    </ContentView.Resources>
+  <ContentView.Content>
+      <StackLayout BackgroundColor="White" Padding="8">
+        <ListView x:Name="MenuListView"  SelectionMode="Single" ItemSelected="OnItemSelected" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Text}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsSource>
+                <MenuItemCollection>
+                    <MenuItem Text="{s:Translate NewSketch}" x:Name="NewSketchMenuItem" />
+                    <MenuItem Text="{s:Translate OpenSketch}" Command="{StaticResource OpenSketchCommand}" />
+                    <MenuItem x:Name="SaveSketchMenuItem" Text="{s:Translate SaveSketch}" />
+                    <MenuItem Text="{s:Translate ExportImage}" x:Name="ExportImageMenuItem" Command="{StaticResource ExportImageCommand}" CommandParameter="{Binding SketchData, Mode=OneWay}" />
+                        <MenuItem Text="{s:Translate Share}" Command="{StaticResource ShareCommand}"/>
+                        <MenuItem x:Name="SketchPropertiesMenuItem" Text="{s:Translate SketchPropertiesMenuItem}" />
+                    <MenuItem x:Name="SettingsMenuItem" Text="{s:Translate SettingsMenuItem}"/>
+                        <MenuItem x:Name="HelpMenuItem" Text="{s:Translate HelpMenuItem}"/>
+                        <MenuItem x:Name="AboutSketchMenuItem" Text="{s:Translate AboutMenuItem}"/>
+                </MenuItemCollection>
+            </ListView.ItemsSource>
+        </ListView>
+
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

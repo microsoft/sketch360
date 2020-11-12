@@ -1,0 +1,14 @@
+﻿<html>
+<head>
+    <script type="text/javascript">
+        function imageUpdated(base64) {
+            document.getElementById("preview").src = "data:image/jpg;base64, " + base64;
+        }
+    </script>
+</head>
+<body>
+    <h1>Sketch 360</h1>
+    <p id="display"></p>
+    <img id="preview" src="ms-appdata:///local/image3.jpg"/>
+</body>
+</html>
