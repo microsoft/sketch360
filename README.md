@@ -6,7 +6,11 @@ A Cross Platform 360 Degree Panoramic Sketching App
 
 Sketch 360 was built by [Michael Scherotter](https://github.com/mscherotter) and 
 [originally released](https://www.microsoft.com/en-us/garage/blog/2018/11/finally-a-way-to-sketch-360-degree-vr-scenes/) 
-as a Microsoft Garage project in 2018 as a UWP app for Microsoft Windows and is available today for free in the [Microsoft Store](https://www.microsoft.com/en-us/p/sketch-360/9p89s2qlh11t).  This is a new version of Sketch 360 built to take advantage of pen-enabled devices that have two screens like the [Microsoft Surface Duo](https://www.microsoft.com/en-us/surface/devices/surface-duo) but it should work on most Android devices as well.
+as a Microsoft Garage project in 2018 as a UWP app for Microsoft Windows and is available today for free in the
+[Microsoft Store](https://www.microsoft.com/en-us/p/sketch-360/9p89s2qlh11t).  This is a new version of Sketch 
+360 built to take advantage of pen-enabled devices that have two screens like the 
+[Microsoft Surface Duo](https://www.microsoft.com/en-us/surface/devices/surface-duo) but it should work on most 
+Android devices as well.
 
 ## Examples of Sketches created with Sketch 360
 - [360 Drawings](https://lightroom.adobe.com/shares/21b9e652ff4e46ef86130478cbb50abf)
@@ -16,14 +20,16 @@ as a Microsoft Garage project in 2018 as a UWP app for Microsoft Windows and is 
 ![Sketch 360 on the Microsoft Surface Duo](mobile.jpg)
 
 ## Platforms
-- **Android**: Complete with enhancements for Microsoft Surface Duo (dual screen & pressure-sensitive pen support) 
-- **iOS**: In-progress
-- **Windows**: In-progress but not prioritized as the native Windows version is already available.
+Platform | Status
+-------- | ------------
+Android  | Complete with enhancements for Microsoft Surface Duo (dual screen & pressure-sensitive pen support) 
+iOS      | Runs but pen/touch interactivity does not work yet.
+Windows  | In-progress but not prioritized as the native Windows version is already available.
 
 ## Technology
-- Xamarin Forms
-- SkiaSharp
-- Babylon JS
+- [Xamarin Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/)
+- [SkiaSharp](https://github.com/mono/SkiaSharp)
+- [Babylon JS](https://www.babylonjs.com/)
 
 ## Contributing
 [How to contribute](Contributing.md)
