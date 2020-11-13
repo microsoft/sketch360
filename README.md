@@ -1,5 +1,5 @@
-# Sketch 360: a Microsoft Garage Project
-A Cross Platform 360 Degree Panoramic Sketching App
+# Sketch 360, a Microsoft Garage project
+A Cross-Platform 360 Degree Panoramic Sketching App
 
 - Install from the [Google Play Marketplace](https://play.google.com/store/apps/details?id=com.microsoft.garage.sketch360app)
 - Install from the [Microsoft Store](https://www.microsoft.com/en-us/p/sketch-360/9p89s2qlh11t)
@@ -16,6 +16,7 @@ Android devices as well.
 - [360 Drawings](https://lightroom.adobe.com/shares/21b9e652ff4e46ef86130478cbb50abf)
 - [360 Videos](https://studio.youtube.com/video/AImRmQYN_hk/edit)
 - [Virtual Flight 360 Sketch](https://youtu.be/pTFVXD1v3zQ)
+
 ## Sketch 360 on the Microsoft Surface Duo
 ![Sketch 360 on the Microsoft Surface Duo](mobile.jpg)
 
@@ -46,4 +47,4 @@ This project may contain trademarks or logos for projects, products, or services
 [Report secuirty vulnerabilities here](Security.md).
 
 ## Microsoft Garage
-Sketch 360 is a Microsoft Garage project. The Microsoft Garage turns fresh ideas into real projects. Learn more about The Garage at: http://microsoft.com/garage.
+Sketch 360 is a Microsoft Garage project. The Microsoft Garage is an outlet for experimental projects for you to try. Learn more about The Garage at: http://microsoft.com/garage.
