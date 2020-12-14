@@ -176,6 +176,9 @@ Komal Priya</value>
   <data name="ExportResolutions" xml:space="preserve">
     <value>Export resolution</value>
   </data>
+  <data name="GridBy" xml:space="preserve">
+    <value>Equirectangular grid created by António Bandeira Araújo.</value>
+  </data>
   <data name="GridOpacity" xml:space="preserve">
     <value>Grid opacity</value>
   </data>
