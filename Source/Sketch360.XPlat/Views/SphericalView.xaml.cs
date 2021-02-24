@@ -3,6 +3,7 @@
 
 using Microsoft.AppCenter.Crashes;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 
@@ -18,7 +19,6 @@ namespace Sketch360.XPlat.Views
     {
         private double _zoomLevel;
         private bool _navigated;
-        private string _imageScript;
 
         /// <summary>
         /// Initializes a new instance of the SphericalView class.
@@ -29,7 +29,7 @@ namespace Sketch360.XPlat.Views
 
             string url = "spherical.html";
             if (Device.RuntimePlatform != Device.iOS)
-                url = "spherical.html?viewMode=None";
+                url = $"spherical.html?viewMode=None&lang={CultureInfo.CurrentCulture.TwoLetterISOLanguageName}";
 
             var source = new UrlWebViewSource
             {
@@ -109,7 +109,6 @@ namespace Sketch360.XPlat.Views
         /// Updates the web view with the current sketch data
         /// </summary>
         /// <returns>an async task</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public async Task UpdateWebViewAsync()
         {
             if (!_navigated) return;
@@ -124,8 +123,6 @@ namespace Sketch360.XPlat.Views
 
                 var script = $"imageUpdated('{base64}');";
 
-                _imageScript = script;
-
                 if (Dispatcher == null) return;
 
                 Dispatcher.BeginInvokeOnMainThread(async delegate
@@ -139,7 +136,12 @@ namespace Sketch360.XPlat.Views
                     }
                     catch (Exception e)
                     {
-                        Crashes.TrackError(e);
+                        var properties = new Dictionary<string, string>
+                        {
+                            ["ScriptLength"] = script.Length.ToString(CultureInfo.InvariantCulture)
+                        };
+
+                        Crashes.TrackError(e, properties);
                     }
                 });
 

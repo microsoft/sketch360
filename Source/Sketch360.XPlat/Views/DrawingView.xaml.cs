@@ -7,6 +7,7 @@ using Microsoft.AppCenter.Crashes;
 using Sketch360.Core.Support;
 using Sketch360.XPlat.Interfaces;
 using Sketch360.XPlat.Modes;
+using Sketch360.XPlat.Support;
 using Sketch360.XPlat.ViewModels;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
@@ -14,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.DualScreen;
@@ -54,7 +56,7 @@ namespace Sketch360.XPlat.Views
         private SKBitmap _grid;
         private MemoryStream _imageStream;
         private SKBitmap _imageBitmap;
-
+        private readonly TwoPointStencil _twoPointStencil = new TwoPointStencil();
         #endregion
 
         #region Constructors
@@ -80,10 +82,6 @@ namespace Sketch360.XPlat.Views
 
             BindingContext = _viewModel;
 
-            //InkCanvasView.SizeChanged += InkCanvasView_SizeChanged;
-            //InkCanvasView.WetInkTouched += InkCanvasView_WetInkTouched;
-            //MenuView.NewSketchCommand = new RelayCommand<object>(OnNewSketch);
-
             Mode = Mode.Panning;
 
             InkCanvasView.DefaultInkDrawingAttributesChanged += InkCanvasView_DefaultInkDrawingAttributesChanged;
@@ -99,31 +97,24 @@ namespace Sketch360.XPlat.Views
             VisualStateManager.GoToState(LayoutRoot, stateName);
         }
 
-        private async void OnStencil(string mode)
+        private void OnStencil(string mode)
         {
             if (_viewModel.EquirectangularStencil == null)
             {
-                _viewModel.EquirectangularStencil = await EquirectangularStencil.CreateAsync(InkCanvasView).ConfigureAwait(false);
+                _viewModel.EquirectangularStencil = new EquirectangularStencil(InkCanvasView)
+                {
+                    Apex = _twoPointStencil.GetApex(InkCanvasView.CanvasHeight)
+                };
             }
 
-            switch (mode)
+            if (Enum.TryParse(mode, out EquirectangularStencilMode stencilMode))
             {
-                case "LeftRightLines":
-                    _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.LeftRightLines;
-                    break;
-
-                case "FrontBackLines":
-                    _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.FrontBackLines;
-                    break;
-
-                case "VerticalLines":
-                    _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.VerticalLines;
-                    break;
-
-                default:
-                    _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.None;
-                    System.Diagnostics.Debug.WriteLine($"Unknown stencil mode: {mode}");
-                    break;
+                _viewModel.EquirectangularStencil.Mode = stencilMode;
+            }
+            else
+            {
+                _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.None;
+                System.Diagnostics.Debug.WriteLine($"Unknown stencil mode: {mode}");
             }
 
             VisualStateManager.GoToState(LayoutRoot, "Stencil" + mode);
@@ -210,11 +201,10 @@ namespace Sketch360.XPlat.Views
             }
         }
 
-        
+
         /// <summary>
         /// Gets or sets the image stream
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public void UpdateImageStream(MemoryStream imageStream)
         {
             if (_imageBitmap != null)
@@ -320,7 +310,6 @@ namespace Sketch360.XPlat.Views
 
         //}
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool IsSpanned
         {
             get
@@ -339,15 +328,15 @@ namespace Sketch360.XPlat.Views
 
         private void OnInkCanvasSizeChanged(object sender, EventArgs e)
         {
-            //var bounds = DualScreenInfo.Current.SpanningBounds;
+            var buttonHeight = Math.Min(44, (Bounds.Height - 44) / 7);
 
-            //// this means the screen is still adjusting to the span so just leave it alone
-            //if (bounds.Length > 1 && bounds[1].Width < InkCanvasView.Width)
-            //    return;
-
-            //var newZoomFactor = InkCanvasView.PixelWidth / InkCanvasView.CanvasWidth;
-
-            //InkCanvasView.ZoomFactor = newZoomFactor;
+            ColorButton.HeightRequest = buttonHeight;
+            PenSizeButton.HeightRequest = buttonHeight;
+            StencilButton.HeightRequest = buttonHeight;
+            LeftRightButton.HeightRequest = buttonHeight;
+            FrontBackButton.HeightRequest = buttonHeight;
+            VerticalLinesButton.HeightRequest = buttonHeight;
+            TwoPointButton.HeightRequest = buttonHeight;
         }
 
         private void OpenColorPicker()
@@ -492,7 +481,7 @@ namespace Sketch360.XPlat.Views
             }
         }
 
-        private async void OnStencil(object sender, EventArgs e)
+        private void OnStencil(object sender, EventArgs e)
         {
             _isStencilMode = !_isStencilMode;
 
@@ -500,7 +489,7 @@ namespace Sketch360.XPlat.Views
             {
                 if (_viewModel.EquirectangularStencil == null)
                 {
-                    _viewModel.EquirectangularStencil = await EquirectangularStencil.CreateAsync(InkCanvasView).ConfigureAwait(true);
+                    _viewModel.EquirectangularStencil = new EquirectangularStencil(InkCanvasView);
                 }
 
                 _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.LeftRightLines;
@@ -519,6 +508,8 @@ namespace Sketch360.XPlat.Views
                     _viewModel.EquirectangularStencil.Mode = EquirectangularStencilMode.None;
                 }
             }
+
+            _viewModel.EquirectangularStencil.Apex = _twoPointStencil.GetApex(InkCanvasView.CanvasHeight);
 
             InkCanvasView.InvalidateCanvas(false, true);
 
@@ -591,10 +582,8 @@ namespace Sketch360.XPlat.Views
         }
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1801", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private void OnBeforePaint(object sender_, SKCanvas canvas)
         {
             try
@@ -669,7 +658,6 @@ namespace Sketch360.XPlat.Views
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA1801:Review unused parameters", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
         private void OnAfterPaint(object sender_, SKCanvas e)
@@ -689,118 +677,95 @@ namespace Sketch360.XPlat.Views
                 case EquirectangularStencilMode.VerticalLines:
                     DrawVerticalLines(e);
                     break;
+
+                case EquirectangularStencilMode.TwoPoint:
+                    DrawTwoPointStencil(e);
+                    break;
             }
 
+        }
+
+        private void DrawTwoPointStencil(SKCanvas e)
+        {
+            System.Diagnostics.Debug.Assert(InkCanvasView.ZoomFactor != 0.0);
+
+            if (InkCanvasView.ZoomFactor == 0) return;
+
+            var zoomFactor = Convert.ToSingle(InkCanvasView.ZoomFactor);
+
+            using var paint = new SKPaint
+            {
+                Color = Color.Red.ToSKColor().WithAlpha(64),
+                IsStroke = true,
+                StrokeWidth = 6.0f / zoomFactor,
+            };
+
+            DrawPath(e, _viewModel.EquirectangularStencil.Apex, paint);
+
+            _twoPointStencil.Draw(e, zoomFactor);
         }
 
         private void DrawLeftRightLines(SKCanvas e)
         {
-            e.Scale(5.0f);
+            using var paint = new SKPaint
+            {
+                Color = Color.Blue.ToSKColor().WithAlpha(64),
+                IsStroke = true,
+                StrokeWidth = 3.0f,
+            };
 
-            e.Scale(-1, 1);
-
-            e.Translate(-100.0f, 0.0f);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Translate(200.0f, 0.0f);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Translate(-200.0f, 200.0f);
-
-            e.Scale(-1, -1);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Translate(200.0f, 0);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Blue);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Blue);
+            DrawMeridians(e, new[] { -Math.PI, 0 }, paint);
         }
 
-        private void DrawStencilCurves(SKCanvas e, Color color)
+        private void DrawPath(SKCanvas e, Vertex apex, SKPaint paint)
         {
-            foreach (var item in _viewModel.EquirectangularStencil.StencilCurves)
+            var points = Equirectangular.GetPoints(apex, InkCanvasView.CanvasHeight);
+
+            using var path = new SKPath();
+
+            path.MoveTo(points[0].ToSKPoint());
+
+            points.Skip(1).ToList().ForEach(delegate (Point point)
             {
-                using var path = new SKPath();
-                path.MoveTo(item.Point0.ToSKPoint());
+                path.LineTo(point.ToSKPoint());
+            });
 
-                path.CubicTo(item.Point1.ToSKPoint(), item.Point2.ToSKPoint(), item.Point3.ToSKPoint());
-
-                using var paint = new SKPaint
-                {
-                    Color = color.ToSKColor().WithAlpha(64),
-                    IsStroke = true,
-                    StrokeWidth = 1.0f,
-                };
-                e.DrawPath(path, paint);
-            }
+            e.DrawPath(path, paint);
         }
 
         private void DrawFrontBackLines(SKCanvas e)
         {
-            e.Scale(5.0f);
+            using var paint = new SKPaint
+            {
+                Color = Color.Red.ToSKColor().WithAlpha(64),
+                IsStroke = true,
+                StrokeWidth = 3.0f,
+            };
 
-            DrawStencilCurves(e, Color.Red);
+            DrawMeridians(e, new[] { -Math.PI / 2, Math.PI / 2 }, paint);
+        }
 
-            e.Translate(200.0f, 0.0f);
+        private void DrawMeridians(SKCanvas e, IEnumerable<double> azimuths, SKPaint paint)
+        {
+            var horizontalMeridians = 18;
+            var anglePerMeridian = Math.PI / horizontalMeridians;
 
-            e.Scale(-1, 1);
+            foreach (var azimuth in azimuths)
+            {
+                for (var i = 0; i <= horizontalMeridians / 2; i++)
+                {
+                    var elevation = i * anglePerMeridian;
 
-            DrawStencilCurves(e, Color.Red);
+                    if (i == horizontalMeridians / 2)
+                    {
+                        elevation *= 0.99;
+                    }
 
-            e.Scale(-1, 1);
+                    var apex = new Vertex { Azimuth = azimuth, Elevation = elevation };
 
-            DrawStencilCurves(e, Color.Red);
-
-            e.Translate(200.0f, 0.0f);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Red);
-
-            e.Translate(400, 200);
-
-            e.Scale(-1, -1);
-
-            DrawStencilCurves(e, Color.Red);
-
-            e.Translate(200, 0);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Red);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Red);
-
-            e.Translate(200.0f, 0.0f);
-
-            e.Scale(-1, 1);
-
-            DrawStencilCurves(e, Color.Red);
-
+                    DrawPath(e, apex, paint);
+                }
+            }
         }
 
         private void DrawVerticalLines(SKCanvas e)
@@ -817,6 +782,12 @@ namespace Sketch360.XPlat.Views
             {
                 e.DrawLine(x, 0, x, Convert.ToSingle(InkCanvasView.CanvasHeight), paint);
             }
+        }
+
+        private void OnTouch(object sender, SKTouchEventArgs e)
+        {
+            ///route touch events to the two point stencil
+            _twoPointStencil.Touch(InkCanvasView, _viewModel.EquirectangularStencil, e);
         }
     }
 }

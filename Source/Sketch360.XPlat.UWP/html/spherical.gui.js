@@ -24,10 +24,13 @@ var sphericalGui = (function () {
         panel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         advancedTexture.addControl(panel);
 
-        var button = BABYLON.GUI.Button.CreateImageButton("but", "Tilt & rotate", "TiltRotate.png");
+        var langPos = document.location.search.indexOf("lang=");
+        var lang = document.location.search.substr(langPos + 5).toUpperCase().trim();
+
+        var button = BABYLON.GUI.Button.CreateImageButton("but", tiltAndRotate[lang], "TiltRotate.png");
         button.color="white";
         button.width = "138px";
-        button.height = "40px";
+        button.height = lang = "EN" ? "40px" : "72px";
         button.onPointerClickObservable.add(function (value) {
             if (_isVrCamera) {
                 scene.activeCamera = _camera;

@@ -3,7 +3,7 @@
 
 using System;
 using System.Windows.Input;
- 
+
 namespace Sketch360.XPlat.Interfaces
 {
     /// <summary>

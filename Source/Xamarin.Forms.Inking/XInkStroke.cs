@@ -4,6 +4,7 @@
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -12,6 +13,7 @@ namespace Xamarin.Forms.Inking
     /// <summary>
     /// Xamarin InkStroke
     /// </summary>
+    [DebuggerDisplay("Points: {Points.Count} Start time: {StrokeStartTime.Value}")]
     public sealed class XInkStroke : IDisposable
     {
         IEnumerable<IDisposable> _resources;
@@ -32,13 +34,31 @@ namespace Xamarin.Forms.Inking
         /// <summary>
         /// Gets or sets the points for serialization
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
         public IList<XInkPoint> Points { get; set; }
 
         /// <summary>
         /// Gets or sets the drawing attributes
         /// </summary>
         public XInkDrawingAttributes DrawingAttributes { get; set; } = new XInkDrawingAttributes();
+
+        /// <summary>
+        /// Gets or sets the date and time when the InkStroke was started
+        /// </summary>
+        public DateTimeOffset? StrokeStartTime
+        {
+            get
+            {
+                if (Points == null) return null;
+
+                if (!Points.Any()) return null;
+
+                var min = Points.Min(point => point.Timestamp);
+
+                var offset = new DateTimeOffset(Convert.ToInt64(min), TimeSpan.Zero);
+
+                return offset;
+            }
+        }
 
         /// <summary>
         /// Update the bounds of the stroke
@@ -57,7 +77,7 @@ namespace Xamarin.Forms.Inking
                 }
                 else
                 {
-                    BoundingRect= Rectangle.Union(BoundingRect, pointRect);
+                    BoundingRect = Rectangle.Union(BoundingRect, pointRect);
                 }
             }
         }
@@ -116,8 +136,8 @@ namespace Xamarin.Forms.Inking
         /// </summary>
         internal IEnumerable<IDisposable> Resources
         {
-            get => _resources; 
-            
+            get => _resources;
+
             set
             {
                 if (_resources != null)
@@ -144,7 +164,7 @@ namespace Xamarin.Forms.Inking
 
         private Rectangle ToRect(XInkPoint point)
         {
-            return new Rectangle(point.Position.X - (DrawingAttributes.Size / 2.0), 
+            return new Rectangle(point.Position.X - (DrawingAttributes.Size / 2.0),
                                  point.Position.Y - (DrawingAttributes.Size / 2),
                                 point.Position.X + (DrawingAttributes.Size / 2.0),
                                 point.Position.Y + (DrawingAttributes.Size / 2));

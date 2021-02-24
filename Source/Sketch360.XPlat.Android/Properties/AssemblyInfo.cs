@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft Garage")]
 [assembly: AssemblyProduct("Sketch360.XPlat.Android")]
-[assembly: AssemblyCopyright("Copyright © 2020 Microsoft Corporation")]
+[assembly: AssemblyCopyright("Copyright ©2020 Microsoft Corporation")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

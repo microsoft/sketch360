@@ -52,7 +52,6 @@ namespace Sketch360.Core.Commands
         /// Execute the command
         /// </summary>
         /// <param name="parameter">the parameter</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public async void Execute(object parameter)
         {
             _isBusy = true;

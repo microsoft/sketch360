@@ -162,7 +162,8 @@ Whether you are an architect, a VR designer, an urban sketcher, a 3D game design
 Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
-Komal Priya</value>
+Komal Priya
+Jon Martin</value>
   </data>
   <data name="DateFilenameFormat" xml:space="preserve">
     <value>{0}.{1}-{2:00}-{3:00} {4:00}.{5:00}.{6:00}.{7}</value>
@@ -177,7 +178,7 @@ Komal Priya</value>
     <value>Export resolution</value>
   </data>
   <data name="GridBy" xml:space="preserve">
-    <value>Equirectangular grid created by António Bandeira Araújo.</value>
+    <value>Equirectangular tools (Eq A Snap) by António Bandeira Araújo.</value>
   </data>
   <data name="GridOpacity" xml:space="preserve">
     <value>Grid opacity</value>

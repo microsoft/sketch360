@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutMenuItem" xml:space="preserve">
+    <value>À propos de Sketch 360...</value>
+  </data>
+  <data name="AboutSketch360" xml:space="preserve">
+    <value>À propos de Sketch 360</value>
+  </data>
+  <data name="AMicrosoftGarageProject" xml:space="preserve">
+    <value>un projet de garage Microsoft</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>Arrière-plan</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>Bas</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="CarouselAppText" xml:space="preserve">
+    <value>Sketch 360 vous aide à créer facilement des croquis panoramiques à 360 degrés, qui sont utiles lorsque vous voulez créer un croquis rapide d’un espace, réel ou virtuel lorsque la modélisation peut prendre trop de temps. 
+Que vous travailmiez un architecte, un concepteur vr, un dessinateur urbain, un concepteur de jeux 3D ou un producteur vidéo 360, vous pouvez facilement construire un croquis précis à partir d’un seul point de vue qui est facilement partageable en ligne en utilisant Sketch 360.</value>
+  </data>
+  <data name="CarouselDrawingText" xml:space="preserve">
+    <value>Dessinez sur un volet à l’aide d’une grille équirectangulaire et de pochoirs comme guides.  Les pochoirs vous aident à dessiner les lignes horizontales verticales et courbes qui finissent par regarder droit lorsqu’elles sont vues en 360.</value>
+  </data>
+  <data name="CarouselExportText" xml:space="preserve">
+    <value>Exportez ces images aussi visible que des photos à 360 degrés sur des sites comme Facebook.com, Adobe Lightroom, Kuula.co ou des applications comme VR Media Player.</value>
+  </data>
+  <data name="CarouselSkip" xml:space="preserve">
+    <value>IGNORER</value>
+  </data>
+  <data name="CarouselSphericalText" xml:space="preserve">
+    <value>Lorsque vous dessinez, l’esquisse plate est projetée à l’intérieur d’une sphère avec vous au centre.  Vous pouvez activer les capteurs de mouvement sur votre appareil pour utiliser l’inclinaison et la rotation de l’appareil pour déterminer l’orientation du regard.</value>
+  </data>
+  <data name="CarouselStart" xml:space="preserve">
+    <value>Commençons</value>
+  </data>
+  <data name="Colors" xml:space="preserve">
+    <value>Couleur de stylo</value>
+  </data>
+  <data name="CreatedByMichaelScherotter" xml:space="preserve">
+    <value>Créé par 
+Michael S. Scherotter
+Matthew Leibowitz
+Shane Neuville
+Komal Priya</value>
+  </data>
+  <data name="DateFilenameFormat" xml:space="preserve">
+    <value>{0}. {1}-{2:00}-{3:00} {4:00}. {5:00}. {6:00}. {7}</value>
+  </data>
+  <data name="DrawingColor" xml:space="preserve">
+    <value>Couleur de dessin</value>
+  </data>
+  <data name="ExportImage" xml:space="preserve">
+    <value>Image d’exportation</value>
+  </data>
+  <data name="ExportResolutions" xml:space="preserve">
+    <value>Résolution à l’exportation</value>
+  </data>
+  <data name="GridBy" xml:space="preserve">
+    <value>Outils equirectangulaires (Eq A Snap) par António Bandeira Araújo.</value>
+  </data>
+  <data name="GridOpacity" xml:space="preserve">
+    <value>Opacité de grille</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="HelpMenuItem" xml:space="preserve">
+    <value>Aide...</value>
+  </data>
+  <data name="LandscapeDrawingScreen" xml:space="preserve">
+    <value>Vitre de dessin de Lanscape</value>
+  </data>
+  <data name="Left" xml:space="preserve">
+    <value>Gauche</value>
+  </data>
+  <data name="LoadInitialSketch" xml:space="preserve">
+    <value>Chargez l’esquisse initiale</value>
+  </data>
+  <data name="LoadInitialSketchMessage" xml:space="preserve">
+    <value>Le chargement de l’esquisse initiale remplacera l’esquisse actuelle.  Appuyez sur OK pour continuer.</value>
+  </data>
+  <data name="NewSketch" xml:space="preserve">
+    <value>Nouveau croquis</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Assez bon</value>
+  </data>
+  <data name="OpenSketch" xml:space="preserve">
+    <value>Croquis ouvert...</value>
+  </data>
+  <data name="PenSize" xml:space="preserve">
+    <value>Taille du stylo</value>
+  </data>
+  <data name="PortraitDrawingScreen" xml:space="preserve">
+    <value>Volet de dessin de portrait</value>
+  </data>
+  <data name="PrivacyAndCookies" xml:space="preserve">
+    <value>Confidentialité et cookies</value>
+  </data>
+  <data name="Right" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="SaveSketch" xml:space="preserve">
+    <value>Enregistrer croquis ...</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="SettingsMenuItem" xml:space="preserve">
+    <value>Paramètres...</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Partager...</value>
+  </data>
+  <data name="ShowIntroduction" xml:space="preserve">
+    <value>Afficher l’introduction</value>
+  </data>
+  <data name="Sketch360" xml:space="preserve">
+    <value>Croquis 360</value>
+  </data>
+  <data name="SketchName" xml:space="preserve">
+    <value>Nom de croquis</value>
+  </data>
+  <data name="SketchProperties" xml:space="preserve">
+    <value>Propriétés d’esquisse</value>
+  </data>
+  <data name="SketchPropertiesMenuItem" xml:space="preserve">
+    <value>Propriétés d’esquisse...</value>
+  </data>
+  <data name="SketchSaved" xml:space="preserve">
+    <value>360 Croquis sauvegardés</value>
+  </data>
+  <data name="SketchSavedMessageFormat" xml:space="preserve">
+    <value>Croquis enregistré dans le dossier téléchargements:
+{0}</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Haut</value>
+  </data>
+  <data name="VersionFormat" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+</root>

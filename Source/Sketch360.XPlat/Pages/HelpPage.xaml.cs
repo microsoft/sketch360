@@ -3,6 +3,8 @@
 
 
 using Microsoft.AppCenter.Analytics;
+using System.Globalization;
+using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,9 +24,20 @@ namespace Sketch360.XPlat.Pages
         {
             InitializeComponent();
 
+            var lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName.ToUpperInvariant();
+
+            var localized = new[] { "DE", "FR" };
+
+            var filename = "about.html";
+
+            if (localized.Contains(lang))
+            { 
+                filename = string.Format("about.{0}.html", lang);
+            }
+
             var source = new UrlWebViewSource
             {
-                Url = DependencyService.Get<IBaseUrl>().GetBase() + "about.html"
+                Url = DependencyService.Get<IBaseUrl>().GetBase() + filename
             };
 
             WebView.Source = source;

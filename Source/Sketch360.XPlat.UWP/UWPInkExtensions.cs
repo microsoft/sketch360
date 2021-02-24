@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -30,14 +33,13 @@ namespace Sketch360.XPlat.UWP
                                   DrawingAttributes = attributes.ToXInkDrawingAttributes(),
                                   Id = stroke.Id.ToString(CultureInfo.InvariantCulture),
                                   Points = (from point in points
-                                            select new XInkPoint
-                                            {
-                                                Position = new Xamarin.Forms.Point(point.Position.X, point.Position.Y),
-                                                Pressure = point.Pressure,
-                                                Timestamp = point.Timestamp,
-                                                TiltX = point.TiltX,
-                                                TiltY = point.TiltY
-                                            }).ToList()
+                                            select new XInkPoint(
+                                                new Xamarin.Forms.Point(point.Position.X, point.Position.Y),
+                                                point.Pressure,
+                                                point.TiltX,
+                                                point.TiltY,
+                                                point.Timestamp)
+                                            ).ToList()
                               };
 
             return xInkStrokes.ToList();

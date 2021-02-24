@@ -94,7 +94,6 @@ namespace Sketch360.XPlat.Droid
             });
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
         private void Platform_FetchAuthCode(string oauthUrl)
         {
             _authDialog = new Dialog(MainActivity);
@@ -145,8 +144,6 @@ namespace Sketch360.XPlat.Droid
                 _authDialog = authDialog;
             }
 
-            [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
-            [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1303:Do not pass literals as localized parameters", Justification = "<Pending>")]
             public override void OnPageFinished(WebView view, string url)
             {
                 base.OnPageFinished(view, url);

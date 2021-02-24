@@ -19,11 +19,11 @@ namespace Xamarin.Forms.Inking
         /// <summary>
         /// Gets the new ink points
         /// </summary>
-        public IList<XInkPoint> NewInkPoints { get; internal set; }
+        public IList<XInkPoint> NewInkPoints { get; set; }
 
         /// <summary>
         /// Gets the pointer id
         /// </summary>
-        public uint PointerId { get; internal set; }
+        public uint PointerId { get; set; }
     }
 }

@@ -2,18 +2,17 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using Sketch360.XPlat.Commands;
+using Sketch360.XPlat.Interfaces;
 using Sketch360.XPlat.Pages;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Sketch360.XPlat.Interfaces;
 
 namespace Sketch360.XPlat.Views
 {
     public partial class MenuView : ContentView
     {
         readonly MenuViewViewModel _viewModel = new MenuViewViewModel();
-        
+
         private Page _page;
 
         public MenuView()
@@ -29,7 +28,9 @@ namespace Sketch360.XPlat.Views
 
         }
 
-        public Page Page { get => _page;
+        public Page Page
+        {
+            get => _page;
             set
             {
                 if (Resources.TryGetValue("ExportImageCommand", out object commandValue))

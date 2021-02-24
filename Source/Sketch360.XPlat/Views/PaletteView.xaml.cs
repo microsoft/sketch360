@@ -8,7 +8,6 @@ using System.Linq;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Inking.Support;
-using Xamarin.Forms.Xaml;
 
 namespace Sketch360.XPlat.Views
 {

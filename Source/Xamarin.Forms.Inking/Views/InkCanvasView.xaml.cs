@@ -74,6 +74,8 @@ namespace Xamarin.Forms.Inking.Views
             null,
             OnZoomFactorChanged);
 
+        private bool _isEnabled = true;
+
         private bool _isErasing;
 
         private readonly Dictionary<long, XInkStroke> _wetStrokes = new Dictionary<long, XInkStroke>();
@@ -116,6 +118,11 @@ namespace Xamarin.Forms.Inking.Views
         #region Events
 
         /// <summary>
+        /// Touch event
+        /// </summary>
+        public event EventHandler<SKTouchEventArgs> Touch;
+
+        /// <summary>
         /// Before paint draw handler
         /// </summary>
         public event EventHandler<SKCanvas> Painting;
@@ -139,6 +146,20 @@ namespace Xamarin.Forms.Inking.Views
 
         #region Properties
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the touch and rendering is enabled
+        /// </summary>
+        /// <remarks>this should be false when the platform supplies a native inking control (like UWP)</remarks>
+        public bool IsControlEnabled
+        {
+            get => _isEnabled;
+
+            set
+            {
+                _isEnabled = value;
+                //WetInkView.EnableTouchEvents = value;
+            }
+        }
         /// <summary>
         /// Gets the wet strokes
         /// </summary>
@@ -271,7 +292,16 @@ namespace Xamarin.Forms.Inking.Views
             {
                 CanvasView.InvalidateSurface();
             }
+
+            CanvasInvalidated?.Invoke(this, new InvalidateCanvasEventArgs(wetInk, dryInk));
         }
+
+        /// <summary>
+        /// Canvas invalidated event
+        /// </summary>
+        public event EventHandler<InvalidateCanvasEventArgs> CanvasInvalidated;
+
+
 
         /// <summary>
         /// Copy the default darwing attributes
@@ -369,15 +399,22 @@ namespace Xamarin.Forms.Inking.Views
 
         private void OnDrawDryInk(object sender, SKPaintSurfaceEventArgs e)
         {
-            PixelDensity = e.Info.Width / CanvasView.Width;
+            if (_isEnabled)
+            {
 
-            var left = Convert.ToSingle(HorizontalOffset / ZoomFactor);
-            var top = Convert.ToSingle(VerticalOffset / ZoomFactor);
-            var right = Convert.ToSingle(left + e.Info.Width / ZoomFactor);
-            var bottom = Convert.ToSingle(top + e.Info.Height / ZoomFactor);
+                PixelDensity = e.Info.Width / CanvasView.Width;
 
-            DrawInk(e.Surface.Canvas, new SKRect(left, top, right, bottom));
+                var left = Convert.ToSingle(HorizontalOffset / ZoomFactor);
+                var top = Convert.ToSingle(VerticalOffset / ZoomFactor);
+                var right = Convert.ToSingle(left + e.Info.Width / ZoomFactor);
+                var bottom = Convert.ToSingle(top + e.Info.Height / ZoomFactor);
+
+                DrawInk(e.Surface.Canvas, new SKRect(left, top, right, bottom));
+            }
+
+            PaintForeground(e.Surface.Canvas);
         }
+
 
         private void DrawInk(SKCanvas canvas, SKRect bounds)
         {
@@ -385,7 +422,7 @@ namespace Xamarin.Forms.Inking.Views
 
             canvas.Scale(Convert.ToSingle(ZoomFactor));
 
-            Painting?.Invoke(this, canvas);
+            PaintBackground(canvas);
 
             if (IsCaching)
             {
@@ -405,7 +442,25 @@ namespace Xamarin.Forms.Inking.Views
                 canvas.Draw(InkPresenter.StrokeContainer.GetStrokes(), bounds);
             }
 
+
+        }
+
+        /// <summary>
+        /// paint the foreground
+        /// </summary>
+        /// <param name="canvas">the SkiaSharp canvas</param>
+        public void PaintForeground(SKCanvas canvas)
+        {
             Painted?.Invoke(this, canvas);
+        }
+
+        /// <summary>
+        /// Paint the background
+        /// </summary>
+        /// <param name="canvas">the SkiaSharp canvas</param>
+        public void PaintBackground(SKCanvas canvas)
+        {
+            Painting?.Invoke(this, canvas);
         }
 
         private static XCoreInputDeviceTypes ToInkDeviceType(SKTouchDeviceType skDeviceType) =>
@@ -419,6 +474,16 @@ namespace Xamarin.Forms.Inking.Views
 
         private void OnTouch(object sender, SKTouchEventArgs e)
         {
+            // first try using the override 
+            Touch?.Invoke(this, e);
+
+            if (e.Handled)
+            {
+
+                // touch was already handled
+                return;
+            }
+
             var deviceType = ToInkDeviceType(e.DeviceType);
 
             if (InkPresenter.InputDeviceTypes.HasFlag(deviceType))
@@ -529,12 +594,7 @@ namespace Xamarin.Forms.Inking.Views
                 return;
             }
 
-            var point = new XInkPoint
-            {
-                Position = position,
-                Timestamp = Convert.ToUInt64(DateTime.UtcNow.Ticks),
-                Pressure = args.Pressure
-            };
+            var point = new XInkPoint(position, args.Pressure, 0.0f, 0.0f, Convert.ToUInt64(DateTime.UtcNow.Ticks));
 
             var points = new List<XInkPoint>(new[]
             {
@@ -688,7 +748,7 @@ namespace Xamarin.Forms.Inking.Views
 
                     //var eraseSize = EraserSize;
 
-                    if (distance  <= 0)
+                    if (distance <= 0)
                     {
                         strokesToErase.Add(stroke);
                     }
@@ -724,6 +784,8 @@ namespace Xamarin.Forms.Inking.Views
 
         private void OnDrawWetInk(object sender, SKPaintSurfaceEventArgs e)
         {
+            if (!_isEnabled) return;
+
             var canvas = e.Surface.Canvas;
 
             canvas.Clear();
@@ -758,7 +820,12 @@ namespace Xamarin.Forms.Inking.Views
             _cachedInk = null;
         }
 
-        private Point GetCanvasPosition(SKPoint location) =>
+        /// <summary>
+        /// Gets an canvas point adjusted by the offset and zoom factor
+        /// </summary>
+        /// <param name="location">the screen point</param>
+        /// <returns>the canvas point</returns>
+        public Point GetCanvasPosition(SKPoint location) =>
             new Point(
                 (location.X + HorizontalOffset) / ZoomFactor,
                 (location.Y + VerticalOffset) / ZoomFactor);

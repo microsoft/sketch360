@@ -47,17 +47,11 @@ namespace Sketch360.XPlat
             }
 
             var now = DateTime.Now;
+
             var filename = string.Format(
                 CultureInfo.InvariantCulture,
-                Resources.AppResources.DateFilenameFormat,
-                string.IsNullOrWhiteSpace(sketchData.Name) ? "Sketch360" : sketchData.Name,
-                now.Year,
-                now.Month,
-                now.Day,
-                now.Hour,
-                now.Minute,
-                now.Second,
-                "sketch360");
+                "{0}.sketch360",
+                string.IsNullOrWhiteSpace(sketchData.Name) ? "Sketch" : sketchData.Name);
 
             var chars = Path.GetInvalidFileNameChars();
 
@@ -96,7 +90,6 @@ namespace Sketch360.XPlat
                 ["inkstrokes"] = sketchData.InkStrokes.Count().ToString(CultureInfo.InvariantCulture),
                 ["background"] = sketchData.BackgroundColor.ToHex(),
                 ["duration"] = sketchData.Duration.TotalMinutes.ToString(CultureInfo.InvariantCulture)
-
             };
 
             Analytics.TrackEvent("Sketch Saved", properties);

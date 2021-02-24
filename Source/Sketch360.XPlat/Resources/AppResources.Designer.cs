@@ -183,7 +183,8 @@ namespace Sketch360.XPlat.Resources {
         ///Michael S. Scherotter
         ///Matthew Leibowitz
         ///Shane Neuville
-        ///Komal Priya.
+        ///Komal Priya
+        ///Jon Martin.
         /// </summary>
         public static string CreatedByMichaelScherotter {
             get {
@@ -224,6 +225,15 @@ namespace Sketch360.XPlat.Resources {
         public static string ExportResolutions {
             get {
                 return ResourceManager.GetString("ExportResolutions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equirectangular tools (Eq A Snap) by António Bandeira Araújo..
+        /// </summary>
+        public static string GridBy {
+            get {
+                return ResourceManager.GetString("GridBy", resourceCulture);
             }
         }
         

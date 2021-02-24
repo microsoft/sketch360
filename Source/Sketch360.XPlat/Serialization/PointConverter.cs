@@ -13,7 +13,6 @@ namespace Sketch360.XPlat.Serialization
 {
     public class PointConverter : JsonConverter<Point>
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public override Point Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             try

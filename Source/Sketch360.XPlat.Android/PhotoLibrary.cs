@@ -1,20 +1,17 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using Android;
 using Android.Content;
-using Android.Content.PM;
 using Android.Media;
 using Android.Provider;
-using Android.Support.V4.App;
+using Microsoft.AppCenter.Crashes;
 using Sketch360.XPlat.Interfaces;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using System.Linq;
-using Microsoft.AppCenter.Crashes;
 
 [assembly: Dependency(typeof(Sketch360.XPlat.Droid.PhotoLibrary))]
 
@@ -40,7 +37,6 @@ namespace Sketch360.XPlat.Droid
         /// <param name="folder"></param>
         /// <param name="filename"></param>
         /// <returns></returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public async Task<bool> SavePhotoAsync(byte[] data, string folder, string filename, Page page)
         {
             try
@@ -82,7 +78,7 @@ namespace Sketch360.XPlat.Droid
 
             var results = await Task.WhenAll(permissions).ConfigureAwait(false);
 
-            if(results.Any(x => x != PermissionStatus.Granted))
+            if (results.Any(x => x != PermissionStatus.Granted))
             {
                 if (page != null)
                 {
@@ -121,7 +117,6 @@ namespace Sketch360.XPlat.Droid
             return path;
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public async Task<bool> SaveSketchAsync(byte[] data, string folder, string filename, Page page)
         {
             bool result;
@@ -226,7 +221,6 @@ namespace Sketch360.XPlat.Droid
         //}
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static async Task LaunchFileAsync(string filename)
         {
             //var fullPath = $"/storage/emulated/0/DCIM/Sketch360/{filename}";
@@ -273,14 +267,12 @@ namespace Sketch360.XPlat.Droid
         private static async Task<Android.Net.Uri> WriteDownloadValuesAsync(string tempfilename, string filename, string mimeType)
         {
             using var stream = System.IO.File.OpenRead(tempfilename);
-            using var contentValues = new ContentValues();
-            contentValues.Put(MediaStore.DownloadColumns.DisplayName, filename);
-            contentValues.Put(MediaStore.DownloadColumns.MimeType, mimeType);
+            //using var contentValues = new ContentValues();
+            //contentValues.Put(MediaStore.IMediaColumns.DisplayName, filename);
+            //contentValues.Put(MediaStore.IMediaColumns.MimeType, mimeType);
 
 
-            var uri = await MainActivity.Instance.OpenSaveFileDialog(filename).ConfigureAwait(true);
-
-            //var uri = MainActivity.Instance.ContentResolver.Insert(MediaStore.Downloads.ExternalContentUri, contentValues);
+            var uri = await MainActivity.Instance.OpenSaveFileDialog(filename, mimeType).ConfigureAwait(true);
 
             if (uri == null) return null;
 
@@ -296,8 +288,8 @@ namespace Sketch360.XPlat.Droid
         {
             using var stream = System.IO.File.OpenRead(tempfilename);
             using var contentValues = new ContentValues();
-            contentValues.Put(MediaStore.MediaColumns.DisplayName, filename);
-            contentValues.Put(MediaStore.MediaColumns.MimeType, mimeType);
+            contentValues.Put(MediaStore.IMediaColumns.DisplayName, filename);
+            contentValues.Put(MediaStore.IMediaColumns.MimeType, mimeType);
 
             var uri = MainActivity.Instance.ContentResolver.Insert(MediaStore.Images.Media.ExternalContentUri, contentValues);
 

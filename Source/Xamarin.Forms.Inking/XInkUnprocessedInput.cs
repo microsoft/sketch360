@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using System.Diagnostics.CodeAnalysis;
 using Xamarin.Forms.Inking.Support;
 
 namespace Xamarin.Forms.Inking
@@ -38,7 +37,6 @@ namespace Xamarin.Forms.Inking
         /// <summary>
         /// Pointer hovered event handler
         /// </summary>
-        [SuppressMessage("Usage", "CS0067:the event is never used")]
         public event TypedEventHandler<XInkUnprocessedInput, XPointerEventArgs> PointerHovered;
 
         /// <summary>

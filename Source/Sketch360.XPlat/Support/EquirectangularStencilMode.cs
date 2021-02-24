@@ -26,6 +26,11 @@ namespace Sketch360.Core.Support
         /// <summary>
         /// snap to left/right vanishing points
         /// </summary>
-        LeftRightLines
+        LeftRightLines,
+
+        /// <summary>
+        /// Snap to line defined by two points
+        /// </summary>
+        TwoPoint,
     }
 }

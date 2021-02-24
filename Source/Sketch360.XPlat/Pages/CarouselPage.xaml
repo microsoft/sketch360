@@ -8,8 +8,6 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="Sketch360.XPlat.CarouselPage"
              SizeChanged="OnSizeChanged">
-    <dualscreen:TwoPaneView MinTallModeHeight="1000" MinWideModeWidth="1000">
-        <dualscreen:TwoPaneView.Pane1>
             <Grid>
                 <carousel:CarouselViewControl x:Name="Carousel" PositionSelected="OnPositionSelected" Style="{StaticResource CarouselStyle}">
                     <carousel:CarouselViewControl.ItemsSource>
@@ -48,6 +46,4 @@
                     </Label>
                 </Grid>
             </Grid>
-        </dualscreen:TwoPaneView.Pane1>
-    </dualscreen:TwoPaneView>
 </ContentPage>

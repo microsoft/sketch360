@@ -4,7 +4,6 @@
 using Microsoft.AppCenter.Analytics;
 using Sketch360.XPlat.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Sketch360.XPlat.Pages
 {

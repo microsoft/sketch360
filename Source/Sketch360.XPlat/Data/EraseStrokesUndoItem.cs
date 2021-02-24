@@ -4,7 +4,6 @@
 using Sketch360.XPlat.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 
 namespace Sketch360.XPlat.Data
 {
@@ -52,13 +51,13 @@ namespace Sketch360.XPlat.Data
             if (operation.Index == 0)
             {
                 // trim off the beginning
-               // stroke.Points.RemoveAt(0);
+                // stroke.Points.RemoveAt(0);
             }
             else
             {
-              //  var newPoints = stroke.Points.Take(operation.Index);
+                //  var newPoints = stroke.Points.Take(operation.Index);
 
-               // stroke.Points = new List<Point>(newPoints);
+                // stroke.Points = new List<Point>(newPoints);
 
                 if (operation.NewStroke != null)
                 {
