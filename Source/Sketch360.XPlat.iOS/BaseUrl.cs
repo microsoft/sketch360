@@ -1,9 +1,9 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using Foundation;
 using System.IO;
 using System.Reflection;
-using Foundation;
 
 [assembly: Xamarin.Forms.Dependency(typeof(Sketch360.XPlat.iOS.BaseUrl))]
 

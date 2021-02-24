@@ -170,7 +170,6 @@ namespace Sketch360.XPlat
         /// Load a sketch from a JSON string
         /// </summary>
         /// <param name="json">the JSON string</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public bool LoadSketch(string json)
         {
             if (string.IsNullOrWhiteSpace(json))

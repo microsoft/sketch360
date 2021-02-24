@@ -26,7 +26,21 @@
     <StackLayout x:Name="RootLayout">
         <ContentView x:Name="ControlPanelRootLayout">
             <StackLayout Orientation="Horizontal" x:Name="ControlPanel">
-                <FlexLayout x:Name="FlexControls" Direction="Row" Margin="4" AlignItems="Center" JustifyContent="SpaceEvenly">
+                <FlexLayout x:Name="FlexControls" Direction="Row" Margin="4">
+                    <FlexLayout.AlignItems>
+                        <OnPlatform x:TypeArguments="FlexAlignItems">
+                            <On Platform="Android" Value="Center"/>
+                            <On Platform="UWP" Value="Start"/>
+                            <On Platform="iOS" Value="Center"/>
+                        </OnPlatform>
+                    </FlexLayout.AlignItems>
+                    <FlexLayout.JustifyContent>
+                        <OnPlatform x:TypeArguments="FlexJustify">
+                            <On Platform="Android" Value="SpaceEvenly"/>
+                            <On Platform="UWP" Value="Start"/>
+                            <On Platform="iOS" Value="SpaceEvenly"/>
+                        </OnPlatform>
+                    </FlexLayout.JustifyContent>
                     <ImageButton Source="MenuButton.png" Clicked="OnMenu" AutomationProperties.Name="Menu"/>
                     <ImageButton x:Name="DrawingButton" AutomationProperties.Name="Drawing" Source="DrawButton.png"  Command="{Binding ActivateModeCommand}" CommandParameter="Drawing"/>
                     <ImageButton x:Name="ErasingButton" AutomationProperties.Name="Erasing" Source="EraserButton.png" Command="{Binding ActivateModeCommand}" CommandParameter="Erasing"/>

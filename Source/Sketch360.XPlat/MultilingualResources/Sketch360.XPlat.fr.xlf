@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr" original="SKETCH360.XPLAT/RESOURCES/APPRESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="SKETCH360.XPLAT/RESOURCES/APPRESOURCES.RESX" datatype="resx">
+        <trans-unit id="AboutMenuItem" translate="yes" xml:space="preserve">
+          <source>About Sketch 360...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">À propos de Sketch 360...</target>
+        </trans-unit>
+        <trans-unit id="AboutSketch360" translate="yes" xml:space="preserve">
+          <source>About Sketch 360</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">À propos de Sketch 360</target>
+        </trans-unit>
+        <trans-unit id="AMicrosoftGarageProject" translate="yes" xml:space="preserve">
+          <source>a Microsoft Garage Project</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">un projet de garage Microsoft</target>
+        </trans-unit>
+        <trans-unit id="Background" translate="yes" xml:space="preserve">
+          <source>Background</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Arrière-plan</target>
+        </trans-unit>
+        <trans-unit id="Bottom" translate="yes" xml:space="preserve">
+          <source>Bottom</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Bas</target>
+        </trans-unit>
+        <trans-unit id="Cancel" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Annuler</target>
+        </trans-unit>
+        <trans-unit id="CarouselAppText" translate="yes" xml:space="preserve">
+          <source>Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual when modeling may take too long. 
+Whether you are an architect, a VR designer, an urban sketcher, a 3D game designer or a 360 video producer, you can easily construct an accurate sketch from a single viewpoint that's easily shareable online using Sketch 360.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Sketch 360 vous aide à créer facilement des croquis panoramiques à 360 degrés, qui sont utiles lorsque vous voulez créer un croquis rapide d’un espace, réel ou virtuel lorsque la modélisation peut prendre trop de temps. 
+Que vous travailmiez un architecte, un concepteur vr, un dessinateur urbain, un concepteur de jeux 3D ou un producteur vidéo 360, vous pouvez facilement construire un croquis précis à partir d’un seul point de vue qui est facilement partageable en ligne en utilisant Sketch 360.</target>
+        </trans-unit>
+        <trans-unit id="CarouselDrawingText" translate="yes" xml:space="preserve">
+          <source>Draw on one pane using equirectangular grid and stencils as guides.  The stencils help you draw the vertical and curved horizontal lines that end up looking straight when seen in 360.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Dessinez sur un volet à l’aide d’une grille équirectangulaire et de pochoirs comme guides.  Les pochoirs vous aident à dessiner les lignes horizontales verticales et courbes qui finissent par regarder droit lorsqu’elles sont vues en 360.</target>
+        </trans-unit>
+        <trans-unit id="CarouselExportText" translate="yes" xml:space="preserve">
+          <source>Export these images as viewable as 360 degree photos on sites like Facebook.com, Adobe Lightroom, Kuula.co or apps like VR Media Player.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Exportez ces images aussi visible que des photos à 360 degrés sur des sites comme Facebook.com, Adobe Lightroom, Kuula.co ou des applications comme VR Media Player.</target>
+        </trans-unit>
+        <trans-unit id="CarouselSkip" translate="yes" xml:space="preserve">
+          <source>SKIP</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">IGNORER</target>
+        </trans-unit>
+        <trans-unit id="CarouselSphericalText" translate="yes" xml:space="preserve">
+          <source>As you draw, the flat sketch is projected to the inside of a sphere with you at the center.  You can activate the motion sensors on your device to use the tilt and rotation of the device to determine the gaze orientation.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Lorsque vous dessinez, l’esquisse plate est projetée à l’intérieur d’une sphère avec vous au centre.  Vous pouvez activer les capteurs de mouvement sur votre appareil pour utiliser l’inclinaison et la rotation de l’appareil pour déterminer l’orientation du regard.</target>
+        </trans-unit>
+        <trans-unit id="CarouselStart" translate="yes" xml:space="preserve">
+          <source>Let's Start</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Commençons</target>
+        </trans-unit>
+        <trans-unit id="Colors" translate="yes" xml:space="preserve">
+          <source>Pen color</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Couleur de stylo</target>
+        </trans-unit>
+        <trans-unit id="CreatedByMichaelScherotter" translate="yes" xml:space="preserve">
+          <source>Created by 
+Michael S. Scherotter
+Matthew Leibowitz
+Shane Neuville
+Komal Priya
+Jon Martin</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Créé par 
+Michael S. Scherotter
+Matthew Leibowitz
+Shane Neuville
+Komal Priya</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="DateFilenameFormat" translate="yes" xml:space="preserve">
+          <source>{0}.{1}-{2:00}-{3:00} {4:00}.{5:00}.{6:00}.{7}</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">{0}. {1}-{2:00}-{3:00} {4:00}. {5:00}. {6:00}. {7}</target>
+        </trans-unit>
+        <trans-unit id="DrawingColor" translate="yes" xml:space="preserve">
+          <source>Drawing color</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Couleur de dessin</target>
+        </trans-unit>
+        <trans-unit id="ExportImage" translate="yes" xml:space="preserve">
+          <source>Export image</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Image d’exportation</target>
+        </trans-unit>
+        <trans-unit id="ExportResolutions" translate="yes" xml:space="preserve">
+          <source>Export resolution</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Résolution à l’exportation</target>
+        </trans-unit>
+        <trans-unit id="GridBy" translate="yes" xml:space="preserve">
+          <source>Equirectangular tools (Eq A Snap) by António Bandeira Araújo.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Outils equirectangulaires (Eq A Snap) par António Bandeira Araújo.</target>
+        </trans-unit>
+        <trans-unit id="GridOpacity" translate="yes" xml:space="preserve">
+          <source>Grid opacity</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Opacité de grille</target>
+        </trans-unit>
+        <trans-unit id="Help" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Aide</target>
+        </trans-unit>
+        <trans-unit id="HelpMenuItem" translate="yes" xml:space="preserve">
+          <source>Help...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Aide...</target>
+        </trans-unit>
+        <trans-unit id="LandscapeDrawingScreen" translate="yes" xml:space="preserve">
+          <source>Lanscape drawing pane</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Vitre de dessin de Lanscape</target>
+        </trans-unit>
+        <trans-unit id="Left" translate="yes" xml:space="preserve">
+          <source>Left</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Gauche</target>
+        </trans-unit>
+        <trans-unit id="LoadInitialSketch" translate="yes" xml:space="preserve">
+          <source>Load initial sketch</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Chargez l’esquisse initiale</target>
+        </trans-unit>
+        <trans-unit id="LoadInitialSketchMessage" translate="yes" xml:space="preserve">
+          <source>Loading the initial sketch will replace the current sketch.  Press OK to continue.</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Le chargement de l’esquisse initiale remplacera l’esquisse actuelle.  Appuyez sur OK pour continuer.</target>
+        </trans-unit>
+        <trans-unit id="NewSketch" translate="yes" xml:space="preserve">
+          <source>New sketch</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Nouveau croquis</target>
+        </trans-unit>
+        <trans-unit id="OK" translate="yes" xml:space="preserve">
+          <source>OK</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Assez bon</target>
+        </trans-unit>
+        <trans-unit id="OpenSketch" translate="yes" xml:space="preserve">
+          <source>Open sketch...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Croquis ouvert...</target>
+        </trans-unit>
+        <trans-unit id="PenSize" translate="yes" xml:space="preserve">
+          <source>Pen size</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Taille du stylo</target>
+        </trans-unit>
+        <trans-unit id="PortraitDrawingScreen" translate="yes" xml:space="preserve">
+          <source>Portrait drawing pane</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Volet de dessin de portrait</target>
+        </trans-unit>
+        <trans-unit id="PrivacyAndCookies" translate="yes" xml:space="preserve">
+          <source>Privacy &amp; Cookies</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Confidentialité et cookies</target>
+        </trans-unit>
+        <trans-unit id="Right" translate="yes" xml:space="preserve">
+          <source>Right</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Droite</target>
+        </trans-unit>
+        <trans-unit id="SaveSketch" translate="yes" xml:space="preserve">
+          <source>Save sketch...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Enregistrer croquis ...</target>
+        </trans-unit>
+        <trans-unit id="Settings" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres</target>
+        </trans-unit>
+        <trans-unit id="SettingsMenuItem" translate="yes" xml:space="preserve">
+          <source>Settings...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Paramètres...</target>
+        </trans-unit>
+        <trans-unit id="Share" translate="yes" xml:space="preserve">
+          <source>Share...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Partager...</target>
+        </trans-unit>
+        <trans-unit id="ShowIntroduction" translate="yes" xml:space="preserve">
+          <source>Show introduction</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Afficher l’introduction</target>
+        </trans-unit>
+        <trans-unit id="Sketch360" translate="yes" xml:space="preserve">
+          <source>Sketch 360</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Croquis 360</target>
+        </trans-unit>
+        <trans-unit id="SketchName" translate="yes" xml:space="preserve">
+          <source>Sketch name</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Nom de croquis</target>
+        </trans-unit>
+        <trans-unit id="SketchProperties" translate="yes" xml:space="preserve">
+          <source>Sketch Properties</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Propriétés d’esquisse</target>
+        </trans-unit>
+        <trans-unit id="SketchPropertiesMenuItem" translate="yes" xml:space="preserve">
+          <source>Sketch properties...</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Propriétés d’esquisse...</target>
+        </trans-unit>
+        <trans-unit id="SketchSaved" translate="yes" xml:space="preserve">
+          <source>360 Sketch Saved</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">360 Croquis sauvegardés</target>
+        </trans-unit>
+        <trans-unit id="SketchSavedMessageFormat" translate="yes" xml:space="preserve">
+          <source>Sketch saved to downloads folder:
+{0}</source>
+          <target state="needs-review-translation" state-qualifier="mt-suggestion">Croquis enregistré dans le dossier téléchargements:
+{0}</target>
+        </trans-unit>
+        <trans-unit id="Top" translate="yes" xml:space="preserve">
+          <source>Top</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Haut</target>
+        </trans-unit>
+        <trans-unit id="VersionFormat" translate="yes" xml:space="preserve">
+          <source>Version {0}</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Version {0}</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

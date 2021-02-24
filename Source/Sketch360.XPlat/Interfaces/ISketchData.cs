@@ -21,6 +21,7 @@ namespace Sketch360.XPlat.Interfaces
         string Name { get; set; }
 
         public TimeSpan Duration { get; }
+        DateTimeOffset Start { get; set; }
 
         void Add(IEnumerable<XInkStroke> strokes);
 

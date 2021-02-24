@@ -20,7 +20,6 @@ namespace Sketch360.XPlat.Data
         /// Gets or sets the strokes
         /// </summary>
         /// <remarks>Ignore CA2227 as this needs to have public get and set for serialization</remarks>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
         public IList<XInkStroke> Strokes { get; set; }
 
         public override void Undo()

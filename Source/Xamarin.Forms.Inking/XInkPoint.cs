@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System;
+
 namespace Xamarin.Forms.Inking
 {
     /// <summary>
@@ -11,8 +13,10 @@ namespace Xamarin.Forms.Inking
         /// <summary>
         /// Initializes a new instance of the XInkPoint class.
         /// </summary>
+        /// <remarks>Called from JSON Serialization</remarks>
         public XInkPoint()
         {
+            Timestamp = Convert.ToUInt64(DateTimeOffset.UtcNow.Ticks);
         }
 
         /// <summary>

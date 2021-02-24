@@ -12,9 +12,8 @@
              x:Class="Sketch360.XPlat.Views.DrawingView">
     <ContentView.Resources>
         <Style TargetType="ImageButton">
-            <Setter Property="MinimumHeightRequest" Value="44"/>
-            <Setter Property="MinimumWidthRequest" Value="44"/>
-            <Setter Property="HeightRequest" Value="44"/>
+            <Setter Property="MinimumWidthRequest" Value="40"/>
+            <Setter Property="HeightRequest" Value="40"/>
             <Setter Property="Margin" Value="0"/>
             <Setter Property="Padding" Value="0"/>
         </Style>
@@ -80,6 +79,13 @@
                             <Setter TargetName="VerticalLinesButton" Property="BackgroundColor" Value="Gray"/>
                         </VisualState.Setters>
                     </VisualState>
+                    <VisualState Name="StencilTwoPoint">
+                        <VisualState.Setters>
+                            <Setter TargetName="StencilButtonGroup" Property="IsVisible" Value="True"/>
+                            <Setter TargetName="StencilButton" Property="BackgroundColor" Value="Gray"/>
+                            <Setter TargetName="TwoPointButton" Property="BackgroundColor" Value="Gray"/>
+                        </VisualState.Setters>
+                    </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
             <views1:InkCanvasView Margin="32,0" BackgroundColor="Blue" x:Name="InkCanvasView" CanvasWidth="2000" CanvasHeight="1000" 
@@ -87,7 +93,9 @@
                                 VerticalOffset="{Binding VerticalOffset, Mode=OneWay}"
                                 SizeChanged="OnInkCanvasSizeChanged"
                                 Painting="OnBeforePaint"
-                                Painted="OnAfterPaint" />
+                                Painted="OnAfterPaint"
+                                  Touch="OnTouch"/>
+
             <Grid IsVisible="False" x:Name="DrawingToolbarContainer"  HorizontalOptions="End" VerticalOptions="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -106,6 +114,15 @@
                         <ImageButton x:Name="LeftRightButton" AutomationProperties.Name="Left-right stencil"  Source="LeftRightButton.png" Command="{Binding StencilCommand}" CommandParameter="LeftRightLines"/>
                         <ImageButton x:Name="FrontBackButton" AutomationProperties.Name="Front-back stencil" Source="FrontBackButton.png" Command="{Binding StencilCommand}" CommandParameter="FrontBackLines"/>
                         <ImageButton Source="VerticalLinesButton.png" AutomationProperties.Name="Vertical stencil" x:Name="VerticalLinesButton" Command="{Binding StencilCommand}" CommandParameter="VerticalLines"/>
+                        <ImageButton Source="TwoPointIcon.png" AutomationProperties.Name="Two point stencil" x:Name="TwoPointButton" Command="{Binding StencilCommand}" CommandParameter="TwoPoint">
+                            <ImageButton.IsVisible>
+                                <OnPlatform x:TypeArguments="x:Boolean">
+                                    <On Platform="UWP" Value="False"/>
+                                    <On Platform="Android" Value="True"/>
+                                    <On Platform="iOS" Value="True"/>
+                                </OnPlatform>
+                            </ImageButton.IsVisible>
+                        </ImageButton>
                     </StackLayout>
                 </StackLayout>
             </Grid>

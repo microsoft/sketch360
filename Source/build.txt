@@ -1,2 +1,4 @@
 Run this from a developer command prompt in the Android folder to build the APK
 MSBuild -restore -flp:v=diag;logfile=MSBuild.log -t:SignAndroidPackage -p:Configuration=Release
+
+

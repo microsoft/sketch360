@@ -14,6 +14,6 @@ namespace Xamarin.Forms.Inking
         /// <summary>
         /// Gets the Strokes
         /// </summary>
-        public IReadOnlyList<XInkStroke> Strokes { get;  set; }
+        public IReadOnlyList<XInkStroke> Strokes { get; set; }
     }
 }

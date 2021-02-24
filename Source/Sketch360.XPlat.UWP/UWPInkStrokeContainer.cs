@@ -1,4 +1,6 @@
-﻿
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,16 +18,21 @@ namespace Sketch360.XPlat.UWP
     /// </summary>
     public sealed class UWPInkStrokeContainer : Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer
     {
+        #region Events
         /// <summary>
         /// ink changed event
         /// </summary>
         public event EventHandler InkChanged;
+        #endregion
 
+        #region Properties
         /// <summary>
         /// the native UWP stroke container
         /// </summary>
         public IInkStrokeContainer NativeStrokeContainer { get; set; }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Add a stroke
         /// </summary>
@@ -53,27 +60,6 @@ namespace Sketch360.XPlat.UWP
         }
 
         /// <summary>
-        /// Add a collection of strokes.
-        /// </summary>
-        /// <param name="strokes">the strokes to add</param>
-        private void AddStrokes(IEnumerable<XInkStroke> strokes)
-        {
-            if (strokes == null) throw new ArgumentNullException(nameof(strokes));
-
-            var strokesToAdd = from item in strokes
-                               let newStroke = item.ToInkStroke()
-                               where newStroke != null
-                               select newStroke;
-
-            foreach (var item in strokesToAdd)
-            {
-                NativeStrokeContainer.AddStroke(item);
-            }
-
-            InkChanged?.Invoke(this, new EventArgs());
-        }
-
-        /// <summary>
         /// Clear the strokes
         /// </summary>
         public void Clear()
@@ -81,19 +67,6 @@ namespace Sketch360.XPlat.UWP
             DeleteStrokes();
 
             InkChanged?.Invoke(this, new EventArgs());
-        }
-
-        /// <summary>
-        /// Delete the strokes
-        /// </summary>
-        private void DeleteStrokes()
-        {
-            foreach (var item in NativeStrokeContainer.GetStrokes())
-            {
-                item.Selected = true;
-            }
-
-            NativeStrokeContainer.DeleteSelected();
         }
 
         /// <summary>
@@ -171,5 +144,47 @@ namespace Sketch360.XPlat.UWP
 
             InkChanged?.Invoke(this, new EventArgs());
         }
+        #endregion
+
+        #region Implementation
+
+        /// <summary>
+        /// Add a collection of strokes.
+        /// </summary>
+        /// <param name="strokes">the strokes to add</param>
+        private void AddStrokes(IEnumerable<XInkStroke> strokes)
+        {
+            if (strokes == null) throw new ArgumentNullException(nameof(strokes));
+
+            if (NativeStrokeContainer == null) return;
+
+            var strokesToAdd = from item in strokes
+                               let newStroke = item.ToInkStroke()
+                               where newStroke != null
+                               select newStroke;
+
+            foreach (var item in strokesToAdd)
+            {
+                NativeStrokeContainer.AddStroke(item);
+            }
+
+            InkChanged?.Invoke(this, new EventArgs());
+        }
+
+        /// <summary>
+        /// Delete the strokes
+        /// </summary>
+        private void DeleteStrokes()
+        {
+            if (NativeStrokeContainer == null) return;
+
+            foreach (var item in NativeStrokeContainer.GetStrokes())
+            {
+                item.Selected = true;
+            }
+
+            NativeStrokeContainer.DeleteSelected();
+        }
+        #endregion
     }
 }

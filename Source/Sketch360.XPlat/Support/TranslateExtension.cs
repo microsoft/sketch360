@@ -19,7 +19,6 @@ namespace Sketch360.XPlat.Support
 
         public string Text { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2208:Instantiate argument exceptions correctly", Justification = "<Pending>")]
         public object ProvideValue(IServiceProvider serviceProvider)
         {
             if (Text == null)

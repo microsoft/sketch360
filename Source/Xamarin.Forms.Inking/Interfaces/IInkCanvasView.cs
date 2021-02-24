@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms.Inking.Support;
@@ -73,5 +74,24 @@ namespace Xamarin.Forms.Inking.Interfaces
         /// <param name="wetInk">true to invalidate the wet ink</param>
         /// <param name="dryInk">true to invalidate the dry ink</param>
         void InvalidateCanvas(bool wetInk, bool dryInk);
+
+        /// <summary>
+        /// Gets the canvas point
+        /// </summary>
+        /// <param name="location">the screen point</param>
+        /// <returns>the canvas point</returns>
+        Point GetCanvasPosition(SKPoint location);
+
+        /// <summary>
+        /// Paint the background
+        /// </summary>
+        /// <param name="canvas">the SkiaSharp canvas</param>
+        void PaintBackground(SKCanvas canvas);
+
+        /// <summary>
+        /// Paint the foreground
+        /// </summary>
+        /// <param name="canvas">the SkiaSharp canvas</param>
+        void PaintForeground(SKCanvas canvas);
     }
 }

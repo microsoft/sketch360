@@ -15,6 +15,7 @@ namespace Sketch360.XPlat.Pages
     public partial class AboutPage : ContentPage
     {
         const string PrivacyUrl = "https://go.microsoft.com/fwlink/?LinkId=521839";
+        const string GridByUrl = "https://aka.ms/AAancza";
         /// <summary>
         /// Initializes a new instance of the <see cref="AboutPage"/> class.
         /// </summary>
@@ -38,6 +39,12 @@ namespace Sketch360.XPlat.Pages
         {
             await Launcher.OpenAsync(
                 new Uri(PrivacyUrl)).ConfigureAwait(false);
+        }
+
+        private async void OnGridBy(object sender, EventArgs e)
+        {
+            await Launcher.OpenAsync(
+               new Uri(GridByUrl)).ConfigureAwait(false);
         }
     }
 }

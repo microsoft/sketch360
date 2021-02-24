@@ -39,9 +39,10 @@ namespace Sketch360.XPlat.Droid
     {
         internal static MainActivity Instance { get; private set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Xamarin.Forms.Forms.SetFlags(new[] { "DragAndDrop_Experimental", "Shapes_Experimental" });
+
             global::Xamarin.Forms.DualScreen.DualScreenService.Init(this);
             Remote.MainActivity = this;
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -56,7 +57,7 @@ namespace Sketch360.XPlat.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             //Distribute.SetEnabledForDebuggableBuild(true);
-            
+
             LoadApplication(new App());
 
             //enable Android webview debugging
@@ -96,12 +97,12 @@ namespace Sketch360.XPlat.Droid
 
         TaskCompletionSource<Android.Net.Uri> _fileName;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>")]
-        public Task<Android.Net.Uri> OpenSaveFileDialog(string currentFileName)
+        public Task<Android.Net.Uri> OpenSaveFileDialog(string currentFileName, string mimeType)
         {
             Intent intent = new Intent(Intent.ActionCreateDocument);
             intent.AddCategory(Intent.CategoryOpenable);
-            intent.SetType("application/octet-stream");
+            //intent.SetType("application/octet-stream");
+            intent.SetType(mimeType);
             intent.PutExtra(Intent.ExtraTitle, currentFileName);
             _fileName = new TaskCompletionSource<Android.Net.Uri>();
             StartActivityForResult(intent, 101);

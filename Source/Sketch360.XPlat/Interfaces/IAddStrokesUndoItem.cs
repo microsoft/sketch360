@@ -8,10 +8,15 @@ namespace Sketch360.XPlat.Interfaces
 {
     public interface IAddStrokesUndoItem : IUndoItem
     {
+        /// <summary>
+        /// Gets or sets the container
+        /// </summary>
         ISketchData Container { get; set; }
 
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
+        /// <summary>
+        /// Gets or sets the strokes
+        /// </summary>
         IList<XInkStroke> Strokes { get; set; }
 
         bool IsErase { get; set; }

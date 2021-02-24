@@ -2,10 +2,8 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using Sketch360.Core.Commands;
-using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.DualScreen;
 
 namespace Sketch360.XPlat.Commands
 {

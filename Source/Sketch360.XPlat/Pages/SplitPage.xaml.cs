@@ -2,7 +2,6 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using Autofac;
-using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Sketch360.XPlat.Interfaces;
@@ -80,7 +79,6 @@ namespace Sketch360.XPlat
             Analytics.TrackEvent("New Sketch");
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         private static bool IsSpanned
         {
             get
@@ -270,7 +268,7 @@ namespace Sketch360.XPlat
 
         private void UpdateSize()
         {
-            if(_dualScreenInfo.IsLandscape && !IsSpanned && wideModePreference == TwoPaneViewWideModeConfiguration.RightLeft)
+            if (_dualScreenInfo.IsLandscape && !IsSpanned && wideModePreference == TwoPaneViewWideModeConfiguration.RightLeft)
             {
                 MoveMenuToTwoPaneView();
                 BackButton.IsVisible = false;
@@ -433,7 +431,7 @@ namespace Sketch360.XPlat
             }
             else
             {
-                inkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen | XCoreInputDeviceTypes.Touch;
+                inkPresenter.InputDeviceTypes = XCoreInputDeviceTypes.Pen | XCoreInputDeviceTypes.Touch | XCoreInputDeviceTypes.Mouse;
 
                 TouchDrawingButton.BackgroundColor = Color.LightGray;
 

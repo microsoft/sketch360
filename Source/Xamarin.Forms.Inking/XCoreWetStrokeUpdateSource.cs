@@ -11,10 +11,14 @@ namespace Xamarin.Forms.Inking
     /// Xamarin CoreWetStrokeUpdateSource
     /// <![CDATA[https://docs.microsoft.com/en-us/uwp/api/windows.ui.input.inking.core.corewetstrokeupdatesource]]>
     /// </summary>
-    public sealed class XCoreWetStrokeUpdateSource
+    public class XCoreWetStrokeUpdateSource
     {
         #region Constructors
-        private XCoreWetStrokeUpdateSource(IInkPresenter inkPresenter)
+        /// <summary>
+        /// Initializes a new instance of the XCoreWetStrokeUpdateSource class.
+        /// </summary>
+        /// <param name="inkPresenter">the ink presenter</param>
+        protected XCoreWetStrokeUpdateSource(IInkPresenter inkPresenter)
         {
             InkPresenter = inkPresenter;
 
@@ -78,6 +82,15 @@ namespace Xamarin.Forms.Inking
         {
             updateArgs.Disposition = XCoreWetStrokeDisposition.Canceled;
 
+            InvokeWetStrokeCanceled(updateArgs);
+        }
+
+        /// <summary>
+        /// Invoke the WetStrokeCanceled event
+        /// </summary>
+        /// <param name="updateArgs">the update arguments</param>
+        protected void InvokeWetStrokeCanceled(XCoreWetStrokeUpdateEventArgs updateArgs)
+        {
             WetStrokeCanceled?.Invoke(this, updateArgs);
         }
 
@@ -87,12 +100,21 @@ namespace Xamarin.Forms.Inking
         /// <param name="updateArgs"></param>
         internal void OnMoved(XCoreWetStrokeUpdateEventArgs updateArgs)
         {
-            WetStrokeContinuing?.Invoke(this, updateArgs);
+            InvokeWetStrokeContinuing(updateArgs);
 
             if (updateArgs.Disposition == XCoreWetStrokeDisposition.Completed)
             {
-                WetStrokeCompleted?.Invoke(this, updateArgs);
+                InvokeWetStrokeCompleted(updateArgs);
             }
+        }
+
+        /// <summary>
+        /// Invoke the WetStrokeContinuing event
+        /// </summary>
+        /// <param name="updateArgs">the update arguments</param>
+        protected void InvokeWetStrokeContinuing(XCoreWetStrokeUpdateEventArgs updateArgs)
+        {
+            WetStrokeContinuing?.Invoke(this, updateArgs);
         }
 
         /// <summary>
@@ -101,11 +123,38 @@ namespace Xamarin.Forms.Inking
         /// <param name="updateArgs"></param>
         internal void OnReleased(XCoreWetStrokeUpdateEventArgs updateArgs)
         {
-            WetStrokeStopping?.Invoke(this, updateArgs);
+            InvokeWetStrokeStopping(updateArgs);
 
             if (updateArgs.Disposition == XCoreWetStrokeDisposition.Canceled) return;
 
+            InvokeWetStrokeCompleted(updateArgs);
+        }
+
+        /// <summary>
+        /// Invoke the WetStrokeCompleted event
+        /// </summary>
+        /// <param name="updateArgs">the update arguments</param>
+        protected void InvokeWetStrokeCompleted(XCoreWetStrokeUpdateEventArgs updateArgs)
+        {
             WetStrokeCompleted?.Invoke(this, updateArgs);
+        }
+
+        /// <summary>
+        /// Invoke the WetStrokeStopping event
+        /// </summary>
+        /// <param name="updateArgs">the update arguments</param>
+        protected void InvokeWetStrokeStopping(XCoreWetStrokeUpdateEventArgs updateArgs)
+        {
+            WetStrokeStopping?.Invoke(this, updateArgs);
+        }
+
+        /// <summary>
+        /// Invoke the wet stroke starting event
+        /// </summary>
+        /// <param name="updateArgs">the update arggs</param>
+        protected void InvokeWetStrokeStarting(XCoreWetStrokeUpdateEventArgs updateArgs)
+        {
+            WetStrokeStarting?.Invoke(this, updateArgs);
         }
 
         /// <summary>
@@ -114,15 +163,15 @@ namespace Xamarin.Forms.Inking
         /// <param name="updateArgs"></param>
         internal void OnPressed(XCoreWetStrokeUpdateEventArgs updateArgs)
         {
-            WetStrokeStarting?.Invoke(this, updateArgs);
+            InvokeWetStrokeStarting(updateArgs);
 
             if (updateArgs.Disposition == XCoreWetStrokeDisposition.Canceled) return;
 
-            WetStrokeContinuing?.Invoke(this, updateArgs);
+            InvokeWetStrokeContinuing(updateArgs);
 
             if (updateArgs.Disposition == XCoreWetStrokeDisposition.Completed)
             {
-                WetStrokeCompleted?.Invoke(this, updateArgs);
+                InvokeWetStrokeCompleted(updateArgs);
             }
         }
         #endregion

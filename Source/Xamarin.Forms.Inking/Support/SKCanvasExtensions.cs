@@ -107,7 +107,7 @@ namespace Xamarin.Forms.Inking.Support
                     {
                         paint.IsStroke = false;
 
-                        var radius =stroke.DrawingAttributes.Size / 4.0f;
+                        var radius = stroke.DrawingAttributes.Size / 4.0f;
 
                         //System.Diagnostics.Debug.WriteLine($"Drawing dot radius {radius}");
                         canvas.DrawCircle(

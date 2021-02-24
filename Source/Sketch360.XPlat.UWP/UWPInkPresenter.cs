@@ -1,7 +1,11 @@
-﻿using Sketch360.XPlat.UWP;
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using Sketch360.XPlat.UWP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Xamarin.Forms.Inking;
 using Xamarin.Forms.Inking.Interfaces;
@@ -48,10 +52,76 @@ namespace Sketch360.XPlat.UWP
         /// </summary>
         public Xamarin.Forms.Inking.Interfaces.IInkStrokeContainer StrokeContainer { get; set; }
 
+        XCoreInputDeviceTypes _inputDeviceTypes = XCoreInputDeviceTypes.Pen;
+
         /// <summary>
         /// Gets or sets the input device types
         /// </summary>
-        public XCoreInputDeviceTypes InputDeviceTypes { get; set; }
+        public XCoreInputDeviceTypes InputDeviceTypes
+        {
+            get
+            {
+                if (_inkCanvas != null)
+                {
+                    _inputDeviceTypes = GetXInputDeviceTypes(_inkCanvas.InkPresenter.InputDeviceTypes);
+                }
+
+                return _inputDeviceTypes;
+            }
+            set
+            {
+                _inputDeviceTypes = value;
+                if (_inkCanvas != null)
+                {
+                    _inkCanvas.InkPresenter.InputDeviceTypes = GetInputDeviceTypes(value);
+                }
+            }
+
+        }
+
+        internal static XCoreInputDeviceTypes GetXInputDeviceTypes(CoreInputDeviceTypes inputDeviceTypes)
+        {
+            XCoreInputDeviceTypes deviceTypes = XCoreInputDeviceTypes.None;
+
+            if (inputDeviceTypes.HasFlag(CoreInputDeviceTypes.Mouse))
+            {
+                deviceTypes |= XCoreInputDeviceTypes.Mouse;
+            }
+
+            if (inputDeviceTypes.HasFlag(CoreInputDeviceTypes.Pen))
+            {
+                deviceTypes |= XCoreInputDeviceTypes.Pen;
+            }
+
+            if (inputDeviceTypes.HasFlag(CoreInputDeviceTypes.Touch))
+            {
+                deviceTypes |= XCoreInputDeviceTypes.Touch;
+            }
+
+            return deviceTypes;
+        }
+
+        internal static CoreInputDeviceTypes GetInputDeviceTypes(XCoreInputDeviceTypes inputDeviceTypes)
+        {
+            CoreInputDeviceTypes deviceTypes = CoreInputDeviceTypes.None;
+
+            if (inputDeviceTypes.HasFlag(XCoreInputDeviceTypes.Mouse))
+            {
+                deviceTypes |= CoreInputDeviceTypes.Mouse;
+            }
+
+            if (inputDeviceTypes.HasFlag(XCoreInputDeviceTypes.Pen))
+            {
+                deviceTypes |= CoreInputDeviceTypes.Pen;
+            }
+
+            if (inputDeviceTypes.HasFlag(XCoreInputDeviceTypes.Touch))
+            {
+                deviceTypes |= CoreInputDeviceTypes.Touch;
+            }
+
+            return deviceTypes;
+        }
 
         /// <summary>
         /// Gets the ink input processing configuration
@@ -66,7 +136,7 @@ namespace Sketch360.XPlat.UWP
         /// <summary>
         /// Gets or sets the wet stroke update source
         /// </summary>
-        public XCoreWetStrokeUpdateSource WetStrokeUpdateSource { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public XCoreWetStrokeUpdateSource WetStrokeUpdateSource { get; set; }
 
         /// <summary>
         /// strokes collected event handler

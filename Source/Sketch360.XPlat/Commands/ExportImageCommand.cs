@@ -76,13 +76,43 @@ namespace Sketch360.XPlat.Commands
 
             var saved = await photoLibrary.SavePhotoAsync(array, string.Empty, filename, Page).ConfigureAwait(false);
 
+            var introSketch = "No";
+
+            var colors = 0;
+
+            if (data.InkStrokes.Any())
+            {
+                var firstStrokeStart = data.InkStrokes.First().StrokeStartTime;
+
+                if (firstStrokeStart.HasValue && firstStrokeStart.Value.Date == new DateTime(2020, 7, 29))
+                {
+                    // Intro Sketch has 254 strokes and was started on 7/29/2020
+                    if (data.InkStrokes.Count() == 254)
+                    {
+                        introSketch = "Yes";
+                    }
+                    else
+                    {
+                        introSketch = "Modified";
+                    }
+                }
+
+                colors = (from inkStroke in data.InkStrokes
+                          group inkStroke by inkStroke.DrawingAttributes.Color
+                    into c
+                          select c.Key).Count();
+            }
+
             var properties = new Dictionary<string, string>
             {
                 ["saved"] = saved.ToString(CultureInfo.InvariantCulture),
                 ["width"] = data.Width.ToString(CultureInfo.InvariantCulture),
                 ["inkstrokes"] = data.InkStrokes.Count().ToString(CultureInfo.InvariantCulture),
                 ["background"] = data.BackgroundColor.ToHex(),
-                ["duration"] = data.Duration.TotalMinutes.ToString(CultureInfo.InvariantCulture)
+                ["durationMin"] = data.Duration.TotalMinutes.ToString(CultureInfo.InvariantCulture),
+                ["introSketch"] = introSketch,
+                ["startDate"] = data.Start.ToString("u", CultureInfo.InvariantCulture),
+                ["colors"] = colors.ToString("g", CultureInfo.InvariantCulture)
             };
 
             Analytics.TrackEvent("Image Exported", properties);

@@ -1,0 +1,7 @@
+1. Using Multilingual App Toolkit, add language to Sketch360.XPlat
+2. Build application
+3. Localize Sketch360.XPlat/MultilingualResources/*.xlf using Multilingual App Toolkit Editor
+    https://developer.microsoft.com/en-us/windows/downloads/multilingual-app-toolkit/
+4. create localized about.html where the language code LC is in the filename about.LC.html
+5. Add Language to Sketch360.XPlat.Android/Assets/resources.js
+6. Localize Google Play Store

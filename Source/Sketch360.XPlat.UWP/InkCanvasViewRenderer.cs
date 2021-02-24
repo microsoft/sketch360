@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using System;
 using Xamarin.Forms.Inking.Views;
 using Xamarin.Forms.Platform.UWP;
 
@@ -28,6 +31,7 @@ namespace Sketch360.XPlat.UWP
             {
                 Control.InkCanvas.InkPresenter.StrokesCollected -= InkPresenter_StrokesCollected;
                 Control.InkCanvas.InkPresenter.StrokesErased -= InkPresenter_StrokesErased;
+                Control.ViewChanged -= ScrollingInkCanvas_ViewChanged;
             }
 
             if (e.NewElement != null)
@@ -36,9 +40,14 @@ namespace Sketch360.XPlat.UWP
                 {
                     var scrollingInkCanvas = new ScrollingInkCanvas();
 
-                    scrollingInkCanvas.InkCanvas.InkPresenter.InputDeviceTypes = Windows.UI.Core.CoreInputDeviceTypes.Pen | Windows.UI.Core.CoreInputDeviceTypes.Touch | Windows.UI.Core.CoreInputDeviceTypes.Mouse;
+                    scrollingInkCanvas.InkCanvas.InkPresenter.InputDeviceTypes = UWPInkPresenter.GetInputDeviceTypes(e.NewElement.InkPresenter.InputDeviceTypes);
                     scrollingInkCanvas.InkCanvas.InkPresenter.StrokesCollected += InkPresenter_StrokesCollected;
                     scrollingInkCanvas.InkCanvas.InkPresenter.StrokesErased += InkPresenter_StrokesErased;
+                    scrollingInkCanvas.ViewChanged += ScrollingInkCanvas_ViewChanged;
+
+                    scrollingInkCanvas.InkCanvasView = e.NewElement;
+
+                    e.NewElement.CanvasInvalidated += scrollingInkCanvas.Invalidated;
 
                     SetNativeControl(scrollingInkCanvas);
 
@@ -47,11 +56,22 @@ namespace Sketch360.XPlat.UWP
                         uwp.InkCanvas = scrollingInkCanvas.InkCanvas;
                     }
                 }
+
+                e.NewElement.IsControlEnabled = false;
             }
         }
+
         #endregion
 
         #region Implementation
+
+        private void ScrollingInkCanvas_ViewChanged(object sender, ViewChangedEventArgs e)
+        {
+            Element.HorizontalOffset = e.ScrollViewer.HorizontalOffset;
+            Element.VerticalOffset = e.ScrollViewer.VerticalOffset;
+            Element.ZoomFactor = e.ScrollViewer.ZoomFactor;
+        }
+
 
         private void InkPresenter_StrokesErased(Windows.UI.Input.Inking.InkPresenter sender, Windows.UI.Input.Inking.InkStrokesErasedEventArgs args)
         {

@@ -40,7 +40,6 @@ namespace Sketch360.Core.Support
         /// <summary>
         /// Gets or sets the curve points
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
         public List<Point> CurvePoints { get; set; }
 
 

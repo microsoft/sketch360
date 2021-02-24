@@ -4,6 +4,8 @@
 using Sketch360.XPlat.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Text.Json.Serialization;
 using Xamarin.Forms;
 using Xamarin.Forms.Inking;
@@ -13,6 +15,7 @@ namespace Sketch360.XPlat.Data
     /// <summary>
     /// Sketch data
     /// </summary>
+    [DebuggerDisplay("Strokes: {InkStrokes.Count()} Duration: {Duration}")]
     public sealed class SketchData : ISketchData
     {
         private readonly List<XInkStroke> _inkStrokes = new List<XInkStroke>();
@@ -31,14 +34,29 @@ namespace Sketch360.XPlat.Data
         public DateTimeOffset Start { get; set; }
 
         /// <summary>
-        /// Gets the amount of time from the creation of this sketch
+        /// Gets the amount of time from the creation the first stroke to the creation of the last stroke or Zero
         /// </summary>
         [JsonIgnore]
         public TimeSpan Duration
         {
             get
             {
-                return DateTimeOffset.UtcNow - Start;
+                if (InkStrokes != null)
+                {
+                    var inkStrokesWithTime = from item in InkStrokes
+                                             where item.StrokeStartTime.HasValue
+                                             select item;
+
+                    if (inkStrokesWithTime.Any())
+                    {
+                        var min = inkStrokesWithTime.Min(inkStroke => inkStroke.StrokeStartTime.Value);
+                        var max = inkStrokesWithTime.Max(inkStroke => inkStroke.StrokeStartTime.Value) + TimeSpan.FromSeconds(0.25);
+
+                        return max - min;
+                    }
+                }
+
+                return TimeSpan.Zero;
             }
         }
 
