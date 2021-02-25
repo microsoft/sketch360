@@ -33,6 +33,12 @@ Windows  | In-progress but not prioritized as the native Windows version is alre
 - [Babylon JS](https://www.babylonjs.com/)
 
 ## Contributing
+Here are areas where we would love community help with Sketch 360:
+- iOS Version
+- Localize to other languages (German and French in progress)
+- Improve functionality
+- Fix bugs
+
 [How to contribute](Contributing.md)
 
 [Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct)
