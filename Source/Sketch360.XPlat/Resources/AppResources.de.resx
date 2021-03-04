@@ -58,7 +58,8 @@ Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
 Komal Priya
-Jon Martin</value>
+Jon Martin
+Mickaël Mottet</value>
   </data>
   <data name="DateFilenameFormat" xml:space="preserve">
     <value>{0}. {1}-{2:00}-{3:00} {4:00}. {5:00}. {6:00}. {7}</value>

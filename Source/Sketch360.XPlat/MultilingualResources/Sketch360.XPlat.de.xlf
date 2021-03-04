@@ -31,10 +31,11 @@
           <target state="final" state-qualifier="tm-suggestion">Abbrechen</target>
         </trans-unit>
         <trans-unit id="CarouselAppText" translate="yes" xml:space="preserve">
-          <source>Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual when modeling may take too long. 
+          <source>Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual when modeling may take too long.
 Whether you are an architect, a VR designer, an urban sketcher, a 3D game designer or a 360 video producer, you can easily construct an accurate sketch from a single viewpoint that's easily shareable online using Sketch 360.</source>
-          <target state="translated">Sketch 360 hilft Ihnen eine 360-Grad-Panoramaskizze einfach zu erstellen, die nützlich sind wenn Sie eine schnelle Skizze eines realen oder virtuellen Raumes erstellen möchten und die Modellierung zu lange dauern kann. 
+          <target state="needs-review-translation">Sketch 360 hilft Ihnen eine 360-Grad-Panoramaskizze einfach zu erstellen, die nützlich sind wenn Sie eine schnelle Skizze eines realen oder virtuellen Raumes erstellen möchten und die Modellierung zu lange dauern kann. 
 Egal, ob Sie Architekt, VR-Designer, urbaner Zeichner, 3D-Spieldesigner oder 360-Video-Produzent sind, Sie können ganz einfach eine genaue Skizze aus einem einzigen Blickwinkel erstellen, die mit Sketch 360 online leicht gemeinsam verwendet werden kann.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CarouselDrawingText" translate="yes" xml:space="preserve">
           <source>Draw on one pane using equirectangular grid and stencils as guides.  The stencils help you draw the vertical and curved horizontal lines that end up looking straight when seen in 360.</source>
@@ -61,18 +62,20 @@ Egal, ob Sie Architekt, VR-Designer, urbaner Zeichner, 3D-Spieldesigner oder 360
           <target state="final" state-qualifier="mt-suggestion">Stiftfarbe</target>
         </trans-unit>
         <trans-unit id="CreatedByMichaelScherotter" translate="yes" xml:space="preserve">
-          <source>Created by 
+          <source>Created by
 Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
 Komal Priya
-Jon Martin</source>
-          <target state="final" state-qualifier="mt-suggestion">Erstellt von 
+Jon Martin
+Mickaël Mottet</source>
+          <target state="translated">Erstellt von 
 Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
 Komal Priya
-Jon Martin</target>
+Jon Martin
+Mickaël Mottet</target>
         </trans-unit>
         <trans-unit id="DateFilenameFormat" translate="yes" xml:space="preserve">
           <source>{0}.{1}-{2:00}-{3:00} {4:00}.{5:00}.{6:00}.{7}</source>
