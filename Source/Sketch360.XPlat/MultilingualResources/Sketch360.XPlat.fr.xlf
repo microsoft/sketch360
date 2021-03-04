@@ -31,10 +31,11 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Annuler</target>
         </trans-unit>
         <trans-unit id="CarouselAppText" translate="yes" xml:space="preserve">
-          <source>Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual when modeling may take too long. 
+          <source>Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual when modeling may take too long.
 Whether you are an architect, a VR designer, an urban sketcher, a 3D game designer or a 360 video producer, you can easily construct an accurate sketch from a single viewpoint that's easily shareable online using Sketch 360.</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Sketch 360 vous aide à créer facilement des croquis panoramiques à 360 degrés, qui sont utiles lorsque vous voulez créer un croquis rapide d’un espace, réel ou virtuel lorsque la modélisation peut prendre trop de temps. 
 Que vous travailmiez un architecte, un concepteur vr, un dessinateur urbain, un concepteur de jeux 3D ou un producteur vidéo 360, vous pouvez facilement construire un croquis précis à partir d’un seul point de vue qui est facilement partageable en ligne en utilisant Sketch 360.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CarouselDrawingText" translate="yes" xml:space="preserve">
           <source>Draw on one pane using equirectangular grid and stencils as guides.  The stencils help you draw the vertical and curved horizontal lines that end up looking straight when seen in 360.</source>
@@ -61,18 +62,20 @@ Que vous travailmiez un architecte, un concepteur vr, un dessinateur urbain, un 
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Couleur de stylo</target>
         </trans-unit>
         <trans-unit id="CreatedByMichaelScherotter" translate="yes" xml:space="preserve">
-          <source>Created by 
+          <source>Created by
 Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
 Komal Priya
-Jon Martin</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Créé par 
+Jon Martin
+Mickaël Mottet</source>
+          <target state="translated">Créé par 
 Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
-Komal Priya</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+Komal Priya
+Jon Martin
+Mickaël Mottet</target>
         </trans-unit>
         <trans-unit id="DateFilenameFormat" translate="yes" xml:space="preserve">
           <source>{0}.{1}-{2:00}-{3:00} {4:00}.{5:00}.{6:00}.{7}</source>
