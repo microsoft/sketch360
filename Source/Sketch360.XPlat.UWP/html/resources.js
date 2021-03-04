@@ -1,5 +1,5 @@
 ﻿var tiltAndRotate = {
     "EN": "tilt & rotate",
-    "FR": "inclinaison et rotation",
+    "FR": "inclinaison & rotation",
     "DE": "kippen & drehen"
 };
