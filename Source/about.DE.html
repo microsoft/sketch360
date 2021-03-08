@@ -2,8 +2,8 @@
 <html lang="de-de">
 <head>
     <title>Sketch 360</title>
-    <meta name="description" content="About Sketch 360" />
-    <meta name="keywords" content="sketch360,WebVR,Garage,Microsoft,360 drawing" />
+    <meta name="description" content="Über Sketch 360" />
+    <meta name="keywords" content="sketch360,WebVR,Garage,Microsoft,360-Grad zeichnen" />
     <meta name="generator" content="Sketch 360" />
     <meta name="application-name" content="Sketch 360" />
     <meta name="author" content="Microsoft Garage" />
@@ -20,140 +20,189 @@
 </head>
 <body style="background-color: beige; font-family: sans-serif;">
     <h1>Sketch 360</h1>
-    <h6>A Microsoft Garage Project</h6>
+    <h6>Ein Microsoft Garage Projekt</h6>
     <p>
-        With Sketch 360, you can create 360 degree panoramic sketches from a
-        single point looking in all directions.  360 cameras save these spherical
-        images in a flat JPEG images by using an equirectangular projection and
-        added specific metadata to the images identifying them as 360 photos.
-        Sketch 360 saves files in the same way so the sketches can be viewed as 360
-        photos on sites like Facebook, Adobe Lightroom.com, and Kuula.co.
+         Mit Sketch 360 können Sie 360-Grad-Panoramaskizzen erstellen 
+         indem Sie von einem einzigen Blickpunkt in mehrere Richtungen schauen.
+
+         360-Grad Kameras speichern solche sphärischen Bilder als JPEG-Dateien 
+         unter Verwendung einer Rektangularprojektion und fügte den Bildern bestimmte 
+         Metadaten hinzu, die sie als 360-Grad Fotos identifizierten.
+
+         Sketch 360 speichert Bilddateien auf die gleiche Weise, sodass die Skizzen 
+         als 360-Fotos auf Websites wie Facebook, Adobe Lightroom.com und Kuula.co
+         angezeigt werden können.
     </p>
-    <img src="grid.jpg" width="320" alt="Equirectangular grid" class="center" />
-    <div>Equirectangular grid in 2D</div>
+    <img src="grid.jpg" width="320" alt="Gleichwinkliges Gitter" class="center" />
+    <div>Gleichwinkliges Gitter in 2D</div>
     <canvas id="renderCanvas" class="RenderCanvas" aria-label="360 preview"></canvas>
     <br />
-    <div>Equirectangular grid in 360 (you can interact with this image)</div>
-    <h2>Using Sketch 360</h2>
+    <div>Gleichwinkliges Gitter in 360-Grad 3D (Sie können mit diesem Bild interagieren)</div>
+    <h2>Benutzung von Sketch 360</h2>
     <p>
-        Sketch 360 has two primary surfaces, a drawing canvas, and a 360 view.  You
-        draw on the canvas with a pen or touch and every time a stroke is added,
-        the 360 view is updated, rotating to the end point of the ink stroke.  At
-        any time you can rotate the 360 view with your finger to see other views of
-        the sketch.
+	 Sketch 360 verfügt über zwei Hauptbedienungsoberflächen: eine Zeichenfläche und eine 360-Grad-Ansicht. 
+         Sie zeichnen Sie mit einem Stift oder einer Berührung auf die Leinwand der Zeichenfläche  und jedes Mal, wenn ein 
+         Strich hinzugefügt wird, wird die 360-Grad-Ansicht aktualisiert und hin zum Endpunkt des Tintenstrichs 
+         gedreht. Sie können die 360-Grad-Ansicht auch jederzeit mit Ihrem Finger manuell drehen, um andere Ansichten der 
+         Skizze anzuzeigen.
     </p>
-    <h2>Drawing and Erasing</h2>
+    <h2>Zeichnen und Löschen</h2>
     <img src="ui.png" width="320" alt="Sketch 360 UI" class="center" />
     <p>
-        With a device that supports a stylus like the Microsoft Surface Duo or the
-        Samsung Galaxy Note, you draw with the pen and manipulate the position and
-        zooming of the canvas with your touch.  On non-stylus aware devices, you
-        can switch to touch-drawing mode to interpret finger touches as pen or eraser strokes instead of panning and zooming.  In addition to using a pinch gesture to zoom, you can use the zoom slider.
+         Mit einem Gerät, das einen Stift unterstützt wie zum Beispiel das Microsoft Surface Duo oder dem 
+         Samsung Galaxy Note, zeichnen Sie mit dem Griffel und manipulieren die Position und
+         Vergrößerung der Leinwand mit Berührungen. Auf Geräten, die nicht mit einem Stift ausgestattet sind,
+         können Sie in den Berührungszeichenmodus wechseln, um Fingerberührungen als Stift- oder Radiergummistriche 
+	 zu interpretieren, anstatt die Ansicht zu schwenken und zu zoomen.
+         Anstelle von Zoom-Gesten zum Einstellen der Leinwandvergrößerung, können Sie auch den 
+         Schieberegler verwenden. 
     </p>
     <p>
-        If using a stylus with an eraser end like the Surface Pen, you can erase any stroke by dragging the stylus over it.  If you are using touch, then press the eraser button to switch to erasing mode.
+         Wenn Sie einen Stift mit einer Radiergummifunktion wie den Surface Pen verwenden, können Sie jeden Strich löschen, 
+         indem Sie die Stiftrückseite darüber ziehen.
+         Wenn Sie Berührungszeichenmodus verwenden, drücken Sie die Radiergummitaste, um in den Löschmodus zu wechseln. 
     </p>
     <p>
-        To help with connecting the left and right edges of a drawing in the 360 view, you can see a little bit of the opposite drawing edge when drawing close to the left or right edge of the drawing canvas.
+         Um die Verbindung der linken und rechten Kante einer Zeichnung in der 360-Grad-Ansicht zu erleichtern, sehen Sie einen Teil
+         der gegenüberliegenden Seite wenn Sie am Randes der Zeichenfläche arbeiten.
     </p>
-    <p> In the 360 view, press the <b>tilt &amp; rotate</b> button to enable the device's gyroscopic sensor to determine the camera's tilt and rotation.</p>
+    <p> 
+         Berühren Sie die <b>Neigen &amp; Drehen</ b>-Taste in der 360-Grad-Ansicht, damit der Positionssensor des Geräts die 
+         Neigung und Drehung der Kamera automatisch bestimmen kann. 
+    </p>
     <h2>
-        Pen Color and Thickness
+         Stiftfarbe und -stärke
     </h2>
     <p>
-        To the side of the drawing canvas, you can tap on the color button or the thickness button to change the color or thickness of the ink that is created.
+        Neben der Zeichenfläche können Sie auf Schaltflächen tippen, um die Farbe oder Dicke der erstellten Linien zu ändern. 
     </p>
     <h2>
-        Undo and Redo
-    </h2>
-    Any drawing or erasing can be undone or redone easily by tapping the undo and redo buttons.
-    <h2>
-        Drawing View and 360 View
-    </h2>
-    Switch to the drawing view or 360 view modes to only show one of the two panes.  Navigate back in the app to go back to the two-pane view.
-    <h2>
-        Orthogonal Guidelines
+        Rückgängig machen und Wiederholen 
     </h2>
     <p>
-        Turning on the orthogonal guidelines helps you draw lines that align with the primary axes in the equirectangular grid.  If you are facing the center point of the drawing canvas.
+        Jeder Zeichen- oder Löschvorgang kann einfach durch Tippen auf der entsprechenden Schaltflächen rückgängig gemacht oder wiederholt werden. 
+    </p>
+    <h2>
+        Zeichnungsansicht und 360-Grad-Ansicht 
+    </h2>
+    <p>
+        Wechseln Sie in die Zeichnungsansicht- oder den 360-Grad-Ansichtsmodus, um nur eines der beiden Fenster bildschirmfüllend anzuzeigen. 
+        Navigieren Sie in der App mit dem Zurück-Knopf oder der Zurück-Geste, um zur standard Zwei-Fenster-Ansicht zurückzukehren. 
+    </p>
+
+    <h2>
+        Senkrechte Hilfslinien
+    </h2>
+    <p>
+        Aktivieren Sie die Hilfslinienfunktion um Linien zu zeichnen, die an den Primärachsen im gleichwinkligen Gitter ausgerichtet sind
+        wenn Sie zum Mittelpunkt der Zeichenfläche zeigen. 
     </p>
     <ul>
-        <li>Red lines go from your front to your back.</li>
-        <li>Blue lines go from your left to your right.</li>
-        <li>Green lines go from the top to the bottom.</li>
-        <li>The Two-point stencil helps you draw lines intersecting any two 
-        points. To position it, drag the two circles to reposition them and the
-        draw the line over the dashed stencil curve. This stencil was built in 
-        collaboration with António B. Araújo at Universidade Aberta in Portugal. 
-        For more detail see <a href="https://aka.ms/AAancza" target="_blank">this</a>.</li>
+        <li> Rote Linien verlaufen von vorne nach hinten. </ li>
+        <li> Blaue Linien verlaufen von links nach rechts. </ li>
+        <li> Grüne Linien verlaufen von oben nach unten. </ li> 
+
+        <li>
+         Mit der Zweipunktschablone können Sie Linien zeichnen, die genau durch zwei beliebige
+         Punkte führen. Um die Schablone zu positionieren, positionieren Sie zuerst die beiden Kreise
+         und zeichnen Sie dann die Linie über die gestrichelte Schablonenkurve. 
+         Diese Schablone wurde in Zusammenarbeit mit António B. Araújo an der Universidade Aberta in Portugal
+         entwickelt.
+         Weitere Informationen finden Sie <a href="https://aka.ms/AAancza" target="_blank">hier</a>.
+       </li>
     </ul>
-    <h2>Menu</h2>
+    <h2>Menü</h2>
     <ul>
-        <li><b>New sketch</b>: erase the current sketch and create a new blank one.</li>
+        <li> 
+          <b> Neue Skizze </ b>: Löschen Sie die aktuelle Skizze und erstellen Sie eine neue leere Skizze. 
+        </ li>
         <li>
-            <b>Open sketch</b>: open a .sketch360 file that was previously saved to the device.
-        </li>
+            <b> Skizze öffnen </ b>: Öffnen Sie eine .sketch360-Datei, die zuvor auf dem Gerät gespeichert wurde.
+        </ li> 
         <li>
-            <b>Save sketch</b>: save the current drawing to a .sketch360 file on the device.
-        </li>
+            <b> Skizze speichern </ b>: Speichern Sie die aktuelle Zeichnung in einer .sketch360-Datei auf dem Gerät.
+        </ li>
         <li>
-            <b>Export image</b>: save the current drawing to a .jpeg image with 360 metadata on the device.
-        </li>
+            <b> Bild exportieren </ b>: Speichern Sie die aktuelle Zeichnung in einem JPEG-Bild inklusive 360-Grad Metadaten auf dem Gerät.
+        </ li>
         <li>
-            <b>Share</b>: Share the sketch as a .jpeg image with 360 metadata to other apps on the device.
-        </li>
+            <b> Freigeben </ b>: Geben Sie die Skizze als JPEG-Bild mit 360-Grad Metadaten für andere Apps auf dem Gerät frei.
+        </ li>
         <li>
-            <b>Sketch properties</b>: change the name and background color of the sketch.
-        </li>
+            <b> Skizziereigenschaften </ b>: Ändern Sie den Namen und die Hintergrundfarbe der Skizze.
+        </ li>
         <li>
-            <b>Settings</b>: change the grid opacity, the orientation of the two surfaces, the pixel size of exported images, and to reload the example sketch shown on first launching the app.
-        </li>
+            <b> Einstellungen </ b>: Ändern Sie die Rasteropazität, die Ausrichtung der beiden Bedienungsoberflächen, 
+            die Pixelgröße der exportierten Bilder, und laden Sie die Beispielskizze die beim ersten Start der App angezeigt wird neu.
+        </ li>
         <li>
-            <b>Help</b>: Show this help page.
-        </li>
-        <li><b>About  Sketch 360</b> details about the team who built the app.</li>
+            <b> Hilfe </ b>: Diese Hilfeseite anzeigen.
+        </ li>
+        <li> 
+           <b> Über Sketch 360 </ b> Details zum Team, das die App erstellt hat. 
+        </ li> 
     </ul>
-    <h2>Apps and sites that Display 360 Images</h2>
+    <h2>Apps und Websites, auf denen 360-Grad Bilder angezeigt werden</h2>
     <ul>
         <li>
-            Adobe <a target="=_blank" href="lightroom.adobe.com">Lightroom.adobe.com</a>
+           Adobe <a target="=_blank" href="lightroom.adobe.com">lightroom.adobe.com</a>
         </li>
-        <li>Adobe <a target="_blank" href="https://www.adobe.com/products/photoshop.html">Photoshop</a></li>
-        <li><a href="https://kuula.co/" target="_blank">Kuula</a></li>
         <li>
-            <a target="_blank" href="https://facebook.com">Facebook</a>: Images must be uploaded from the Facebook.com website (facebook.com or m.facebook.com), not the Facebook mobile app.
+           Adobe <a target="_blank" href="https://www.adobe.com/products/photoshop.html">Photoshop</a>
         </li>
-        <li><a target="_blank" href="https://flickr.com">Flickr</a></li>
+        <li>
+           <a href="https://kuula.co/" target="_blank">Kuula</a>
+        </li>
+        <li>
+           <a target="_blank" href="https://facebook.com">Facebook</a>: 
+           Bilder müssen von der Facebook.com-Website (facebook.com oder m.facebook.com) hochgeladen werden, nicht von der mobilen Facebook-App. 
+        </li>
+        <li>
+          <a target="_blank" href="https://flickr.com">Flickr</a>
+        </li>
     </ul>
-    <h2>The Tech behind Sketch 360</h2>
+    <h2>Die Technologie, die hinter Sketch 360 steckt</h2>
     <ul>
-        <li><a target="_blank" href="https://dotnet.microsoft.com/apps/xamarin/xamarin-forms">Xamarin Forms</a> using C#</li>
         <li>
-            <a target="_blank" href="https://github.com/mono/SkiaSharp">SkiaSharp</a> for the drawing canvas
+          <a target="_blank" href="https://dotnet.microsoft.com/apps/xamarin/xamarin-forms">Xamarin Forms</a> mit C#
         </li>
-        <li><a target="_blank" href="https://www.babylonjs.com/">Babylon.js</a> for the 360 View using JavaScript</li>
+        <li>
+            <a target="_blank" href="https://github.com/mono/SkiaSharp">SkiaSharp</a> für die Zeichenfläche 
+        </li>
+        <li><a target="_blank" href="https://www.babylonjs.com/">Babylon.js</a> für die 360-Grad Ansicht mit JavaScript</li>
     </ul>
-    <h2>About Sketch 360</h2>
+    <h2>Über Sketch 360</h2>
     <p>
-        Sketch 360 was originally created by Michael Scherotter and
-        <a target="_blank" href="https://www.microsoft.com/en-us/garage/blog/2018/11/finally-a-way-to-sketch-360-degree-vr-scenes/">
-            released as free app
-        </a> built for Microsoft Surface in the
+        Sketch 360 wurde ursprünglich von Michael Scherotter erstellt und
+        <a target = "_blank" href = "https://www.microsoft.com/en-us/garage/blog/2018/11/finally-a-way-to-sketch-360-degree-vr-scenes/ ">
+          als kostenlose App 
+        </a> im Jahr 2018 für Microsoft Surface im
         <a target="_blank" href="https://www.microsoft.com/en-us/p/sketch-360/9p89s2qlh11t">
-            Windows Store
-        </a> in 2018 to help him create 360 sketches.  Here are some
-        <a target="_blank" href="https://adobe.ly/2UMv7Ew">examples of sketches</a>
-        he drew with it using Microsoft Surface Pro and Surface Go tablets.
-        Michael has been <a target="_blank" href="https://adobe.ly/2GpnWYN">
-            sketching and keeping journals
-        </a> for thirty years ever since he
-        started studying architecture in college.  He made his career in
-        software development, with a specific passion for building creative
-        tools but never stopped sketching.
-        Sketch 360 for the Android was built by Microsoft employees, Michael Scherotter, Matthew Leibowitz, Shane Neuville, and Komal Priya in
-        company-wide hackathons run by the <a target="_blank" href="https://www.microsoft.com/en-us/garage/">Microsoft Garage</a>.
+          Windows Store
+        </a> veröffentlicht. 
+        Es half ihm bei der Erstellung von 360-Grad Skizzen. 
+        Hier sind einige
+        <a target="_blank" href="https://adobe.ly/2UMv7Ew"> 
+         Beispiele für Skizzen
+        </a>
+        die er damit auf dem Microsoft Surface Pro und Surface Go zeichnete.
+        Michael seit dreißig Jahren aks er Architektur am College zu studierte 
+        <a target="_blank" href="https://adobe.ly/2GpnWYN">
+            Skizziert und Tagebücher 
+        </a> geführt.
+        Er machte seine Karriere in Softwareentwicklung, behielt aber seine Leidenschaft für kreative Werkzeuge
+        und hat nie aufgehört weiter zu skizzieren.
         <br />
-        Equirectangular tools <a href="https://aka.ms/AAancza" target="_blank">(Eq A Snap)</a> by António B. Araújo
+
+        Sketch 360 für Android wurde von Microsoft-Mitarbeitern, Michael Scherotter, Matthew Leibowitz, Shane Neuville und Komal Priya 
+	waehrend unternehmensweiter Hackathons, die von der <a target="_blank" href="https://www.microsoft.com/en-us/garage/"> Microsoft Garage </a> 
+        durchgeführt werden, erstellt.
+        <br />
+
+        Gleichwinklige Werkzeuge <a href="https://aka.ms/AAancza" target="_blank"> (Gl. A Snap) </a> von António B. Araújo.
+        <br />
+        Übersetzungen ins Deutsche von Andreas Schiffler.
+        <br />
     </p>
     <img src="garage.png" alt="Microsoft Garage Logo" width="100" class="center" />
     <script src="about.js">

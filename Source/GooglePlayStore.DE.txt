@@ -1,0 +1,25 @@
+App name:
+
+Sketch 360
+
+Short description:
+
+Erstellen Sie 360-Grad-Panoramaskizzen, die einfach als 360-Grad-Fotos geteilt werden können.
+
+Full description:
+
+Sketch 360: Ein Microsoft Garage Projekt
+
+Sketch 360 hilft Ihnen, 360-Grad-Panoramaskizzen zu erstellen, die nützlich sind, wenn Sie eine schnelle Skizze eines realen oder virtuellen Raums erstellen möchten, und die manuelle Modellierung zu lange dauern würde.
+
+Egal, ob Sie Architekt, VR-Designer, städtebaulicher Zeichner, 3D-Spieldesigner oder ein 360-Video-Produzent sind, können Sie mit Sketch 360 ganz einfach eine genaue Skizze aus einem einzigen Blickwinkel erstellen und leicht online gemeinsam nutzen.
+
+Zeichnen Sie auf dem Bildschirm mit äquirektangularen Rastern und Schablonen als Hilfslinien. Diese Schablonen helfen Ihnen, die vertikalen und gekrümmten horizontalen Linien, welche am Ende im 360-Grad-Panorama gerade aussehen, präzise zu zeichnen.
+
+Während Sie im Zeichnungsbereich skizzieren, wird die Skizze auf die Innenseite einer Kugel mit Ihnen in der Mitte projektiert, wobei sich die Drehung der 360-Ansicht automatisch auf den letzten Skizzenstrich anpasst. Sie können auch die Neigung und Drehung Ihres Geräts verwenden, um den Blick in die virtuellen 3D-Ansicht zu bestimmen.
+
+Funktioniert hervorragend mit Geräten die mehreren Bildschirmen besitzen und druckempfindliche Stifte unterstützen, wie zum Beispiel das Microsoft Surface Duo.
+
+Exportieren Sie diese Bilder als 360-Grad-Fotos auf Webseiten wie Facebook.com, Adobe Lightroom, Kuula.co oder Apps wie VR Media Player.
+
+Sketch 360 ist ein Projekt der Microsoft Garage. Die Microsoft Garage verwandelt neue Ideen in realisierte Projekte. Erfahren Sie mehr über die Garage unter: http://microsoft.com/garage
