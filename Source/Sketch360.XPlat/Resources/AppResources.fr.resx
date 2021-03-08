@@ -19,7 +19,7 @@
     <value>À propos de Sketch 360</value>
   </data>
   <data name="AMicrosoftGarageProject" xml:space="preserve">
-    <value>un projet de garage Microsoft</value>
+    <value>un projet Microsoft Garage</value>
   </data>
   <data name="Background" xml:space="preserve">
     <value>Arrière-plan</value>
@@ -32,13 +32,13 @@
   </data>
   <data name="CarouselAppText" xml:space="preserve">
     <value>Sketch 360 vous aide à créer facilement des croquis panoramiques à 360 degrés, qui sont utiles lorsque vous voulez créer un croquis rapide d’un espace, réel ou virtuel lorsque la modélisation peut prendre trop de temps. 
-Que vous travailmiez un architecte, un concepteur vr, un dessinateur urbain, un concepteur de jeux 3D ou un producteur vidéo 360, vous pouvez facilement construire un croquis précis à partir d’un seul point de vue qui est facilement partageable en ligne en utilisant Sketch 360.</value>
+Que vous soyez un architecte, un concepteur vr, un dessinateur urbain, un concepteur de jeux 3D ou un producteur vidéo 360, vous pouvez facilement construire un croquis précis à partir d’un seul point de vue qui est facilement partageable en ligne en utilisant Sketch 360.</value>
   </data>
   <data name="CarouselDrawingText" xml:space="preserve">
-    <value>Dessinez sur un volet à l’aide d’une grille équirectangulaire et de pochoirs comme guides.  Les pochoirs vous aident à dessiner les lignes horizontales verticales et courbes qui finissent par regarder droit lorsqu’elles sont vues en 360.</value>
+    <value>Dessinez sur un volet à l’aide d’une grille équirectangulaire et de pochoirs comme guides.  Les pochoirs vous aident à dessiner les lignes horizontales verticales et courbes qui finissent par être droites lorsqu’elles sont vues en 360.</value>
   </data>
   <data name="CarouselExportText" xml:space="preserve">
-    <value>Exportez ces images aussi visible que des photos à 360 degrés sur des sites comme Facebook.com, Adobe Lightroom, Kuula.co ou des applications comme VR Media Player.</value>
+    <value>Exportez ces images visibles en tant que des photos à 360 degrés sur des sites comme Facebook.com, Adobe Lightroom, Kuula.co ou des applications comme VR Media Player.</value>
   </data>
   <data name="CarouselSkip" xml:space="preserve">
     <value>IGNORER</value>
@@ -68,10 +68,10 @@ Mickaël Mottet</value>
     <value>Couleur de dessin</value>
   </data>
   <data name="ExportImage" xml:space="preserve">
-    <value>Image d’exportation</value>
+    <value>Export de l'image</value>
   </data>
   <data name="ExportResolutions" xml:space="preserve">
-    <value>Résolution à l’exportation</value>
+    <value>Résolution à l’export</value>
   </data>
   <data name="GridBy" xml:space="preserve">
     <value>Outils equirectangulaires (Eq A Snap) par António Bandeira Araújo.</value>
@@ -86,7 +86,7 @@ Mickaël Mottet</value>
     <value>Aide...</value>
   </data>
   <data name="LandscapeDrawingScreen" xml:space="preserve">
-    <value>Vitre de dessin de Lanscape</value>
+    <value>Panneau de dessin en paysage</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>Gauche</value>
@@ -101,16 +101,16 @@ Mickaël Mottet</value>
     <value>Nouveau croquis</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>Assez bon</value>
+    <value>OK</value>
   </data>
   <data name="OpenSketch" xml:space="preserve">
-    <value>Croquis ouvert...</value>
+    <value>Ouvrir le croquis...</value>
   </data>
   <data name="PenSize" xml:space="preserve">
     <value>Taille du stylo</value>
   </data>
   <data name="PortraitDrawingScreen" xml:space="preserve">
-    <value>Volet de dessin de portrait</value>
+    <value>Panneau de dessin en portrait</value>
   </data>
   <data name="PrivacyAndCookies" xml:space="preserve">
     <value>Confidentialité et cookies</value>
@@ -119,7 +119,7 @@ Mickaël Mottet</value>
     <value>Droite</value>
   </data>
   <data name="SaveSketch" xml:space="preserve">
-    <value>Enregistrer croquis ...</value>
+    <value>Enregistrer le croquis ...</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Paramètres</value>
@@ -134,19 +134,19 @@ Mickaël Mottet</value>
     <value>Afficher l’introduction</value>
   </data>
   <data name="Sketch360" xml:space="preserve">
-    <value>Croquis 360</value>
+    <value>Sketch 360</value>
   </data>
   <data name="SketchName" xml:space="preserve">
     <value>Nom de croquis</value>
   </data>
   <data name="SketchProperties" xml:space="preserve">
-    <value>Propriétés d’esquisse</value>
+    <value>Propriétés du croquis</value>
   </data>
   <data name="SketchPropertiesMenuItem" xml:space="preserve">
-    <value>Propriétés d’esquisse...</value>
+    <value>Propriétés du croquis...</value>
   </data>
   <data name="SketchSaved" xml:space="preserve">
-    <value>360 Croquis sauvegardés</value>
+    <value>Croquis sauvegardé</value>
   </data>
   <data name="SketchSavedMessageFormat" xml:space="preserve">
     <value>Croquis enregistré dans le dossier téléchargements:
