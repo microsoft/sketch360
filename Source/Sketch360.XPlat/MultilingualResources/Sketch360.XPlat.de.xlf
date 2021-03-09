@@ -68,14 +68,16 @@ Matthew Leibowitz
 Shane Neuville
 Komal Priya
 Jon Martin
-Mickaël Mottet</source>
-          <target state="translated">Erstellt von 
+Mickaël Mottet
+Andreas Schiffler</source>
+          <target state="final">Erstellt von 
 Michael S. Scherotter
 Matthew Leibowitz
 Shane Neuville
 Komal Priya
 Jon Martin
-Mickaël Mottet</target>
+Mickaël Mottet
+Andreas Schiffler</target>
         </trans-unit>
         <trans-unit id="DateFilenameFormat" translate="yes" xml:space="preserve">
           <source>{0}.{1}-{2:00}-{3:00} {4:00}.{5:00}.{6:00}.{7}</source>

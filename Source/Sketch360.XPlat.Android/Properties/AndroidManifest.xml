@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="8" package="com.microsoft.garage.sketch360app" android:installLocation="preferExternal" android:versionCode="8">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="13" package="com.microsoft.garage.sketch360app" android:installLocation="preferExternal" android:versionCode="13">
 	<uses-sdk android:minSdkVersion="22" android:targetSdkVersion="30" />
 	<application android:label="Sketch 360" android:icon="@mipmap/launcher_foreground" android:requestLegacyExternalStorage="true"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
