@@ -74,17 +74,10 @@
     <PackageReference Include="SkiaSharp">
       <Version>2.80.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.Compat">
-      <Version>28.0.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.VectorDrawable">
-      <Version>1.1.0.6</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.DuoSdk">
       <Version>0.0.3.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.DualScreen">
       <Version>5.0.0.2012</Version>
@@ -306,7 +299,7 @@
   </Target>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionSketch360XPlatAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionSketch360XPlatAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
