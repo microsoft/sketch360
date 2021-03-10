@@ -1,0 +1,22 @@
+App name
+Sketch 360
+
+Short description
+Create 360-degree panoramic sketches that can easily be shared as 360 photos.
+
+Full description
+Sketch 360: A Microsoft Garage Project 
+
+Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual, when modeling might take too long. 
+
+Whether you are an architect, a VR designer, an urban sketcher, a 3D game designer or a 360 video producer, you can easily construct an accurate sketch from a single viewpoint that's easily shareable online using Sketch 360.
+
+Draw on one pane using equirectangular grid and stencils as guides.  The stencils help you draw the vertical and curved horizontal lines that end up looking straight when seen in 360. 
+
+As you sketch on the drawing pane, the sketch is projected onto the inside of a sphere with you at the center, rotating the 360 view to point at the latest sketch stroke.  You can also use the tilt and rotation of your device to determine the gaze of a virtual window pane.
+
+Works great with multi-screen devices and devices that support pressure-sensitive pens like the Microsoft Surface Duo.
+
+Export JPEG images viewable as 360 degree photos on sites like Facebook.com, Adobe Lightroom, Kuula.co or apps like VR Media Player.
+
+Sketch 360 is a Microsoft Garage project. The Microsoft Garage turns fresh ideas into real projects. Learn more about The Garage at: http://microsoft.com/garage
