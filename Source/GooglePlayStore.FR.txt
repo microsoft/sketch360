@@ -2,21 +2,21 @@ App name
 Sketch 360
 
 Short description
-Create 360-degree panoramic sketches that can easily be shared as 360 photos.
+Créer des panoramas 360 degrés qui peuvent aisément être partagées comme des photos 360.
 
 Full description
-Sketch 360: A Microsoft Garage Project 
+Sketch 360: Un projet Microsoft Garage
 
-Sketch 360 helps you easily create 360 degree panoramic sketches, which are useful when you want to create a quick sketch of a space, real or virtual, when modeling might take too long. 
+Sketch 360 vous aide à créer aisément des croquis panoramiques à 360 degrés, qui sont utiles quand vous voulez créer un croquis rapide d'un espace, réel ou virtuel, et quand la modélisation peut prendre trop de temps.
 
-Whether you are an architect, a VR designer, an urban sketcher, a 3D game designer or a 360 video producer, you can easily construct an accurate sketch from a single viewpoint that's easily shareable online using Sketch 360.
+Que vous soyez un architecte, un designer VR, un dessinateur urbain, un designer de jeux 3D ou un producteur de vidéos 360, vous pouvez facilement construire un croquis précis d'un point de vue unique qui est facilement partageable en ligne en utilisant Sketch 360.
 
-Draw on one pane using equirectangular grid and stencils as guides.  The stencils help you draw the vertical and curved horizontal lines that end up looking straight when seen in 360. 
+Dessinez sur un panneau en utilisant une grille équirectangulaire et des guides. Les pochoirs vous aident à dessiner les lignes verticales et horizontales qui finissent droites lorsqu'elles sont vues en 360.
 
-As you sketch on the drawing pane, the sketch is projected onto the inside of a sphere with you at the center, rotating the 360 view to point at the latest sketch stroke.  You can also use the tilt and rotation of your device to determine the gaze of a virtual window pane.
+Lorsque vous dessinez sur le panneau de dessin, le croquis est projeté à l'intérieur de la sphere avec vous au centre, en tournant le point de vue en 360 avec le dernier trait de croquis. You pouvez aussi utiliser l'inclinaison et la rotation de votre périphérique pour déterminer le regard d'une fenêtre virtuelle.
 
-Works great with multi-screen devices and devices that support pressure-sensitive pens like the Microsoft Surface Duo.
+Fonctionne très bien avec les périphériques multi-écrans et les stylets supportant la pression comme le Microsoft Surface Duo.
 
-Export JPEG images viewable as 360 degree photos on sites like Facebook.com, Adobe Lightroom, Kuula.co or apps like VR Media Player.
+Exporter les images comme des photos 360 degrés sur des sites comme Facebook.com, Adobe Lightroom, Kuula.co ou des applications comme VR Media Player.
 
-Sketch 360 is a Microsoft Garage project. The Microsoft Garage turns fresh ideas into real projects. Learn more about The Garage at: http://microsoft.com/garage
+Sketch 360 est un projet Microsoft Garage. Le Microsoft Garage transforme des idées nouvelles en projets réels. Apprenez-en plus à propos du Garage à : http://microsoft.com/garage
