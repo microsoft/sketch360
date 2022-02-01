@@ -9,9 +9,9 @@
              x:Class="Sketch360.XPlat.Pages.HelpPage">
     <ContentPage.Content>
         <Grid>
-            <dualscreen:TwoPaneView Pane1Length="720" BackgroundColor="Beige">
+            <dualscreen:TwoPaneView Pane1Length="580" BackgroundColor="Beige">
                 <dualscreen:TwoPaneView.Pane1>
-                    <WebView x:Name="WebView" />
+                    <WebView x:Name="WebView"/>
                 </dualscreen:TwoPaneView.Pane1>
             </dualscreen:TwoPaneView>
         </Grid>
