@@ -3,6 +3,7 @@
 
 
 using Microsoft.AppCenter.Analytics;
+using System;
 using System.Globalization;
 using System.Linq;
 using Xamarin.Essentials;
@@ -51,16 +52,19 @@ namespace Sketch360.XPlat.Pages
             base.OnAppearing();
         }
 
-        private async void WebView_Navigating(object sender, WebNavigatingEventArgs e)
+        private void WebView_Navigating(object sender, WebNavigatingEventArgs e)
         {
-            if (e.Url.StartsWith("file://", System.StringComparison.OrdinalIgnoreCase))
-            {
-                return;
-            }
+            if (!e.Url.StartsWith("http", StringComparison.InvariantCultureIgnoreCase)) return;
 
-            await Launcher.OpenAsync(new System.Uri(e.Url)).ConfigureAwait(false);
+            var options = new BrowserLaunchOptions
+            {
+                LaunchMode = BrowserLaunchMode.External,
+                Flags = BrowserLaunchFlags.LaunchAdjacent
+            };
 
             e.Cancel = true;
+
+            _ = Browser.OpenAsync(e.Url, options);
         }
     }
 }
